@@ -432,42 +432,185 @@ function openBancadaPanel(partido, miembros, cardEl) {
     panel._miembros = miembros;
 }
 
+function closeFichaCV() {
+    const cv = document.getElementById('panel-cv');
+    cv.innerHTML = '<p class="cv-placeholder">Selecciona un candidato para ver su hoja de vida</p>';
+    document.querySelectorAll('.panel-list-item').forEach(x => x.classList.remove('active'));
+}
+
 function showCV(idx, el) {
     const panel = document.getElementById('bancada-panel');
-    const miembros = panel._miembros||[];
+    const miembros = panel._miembros || [];
     const c = miembros[idx];
-    if(!c) return;
-    document.querySelectorAll('.panel-list-item').forEach(x=>x.classList.remove('active'));
+    if (!c) return;
+    document.querySelectorAll('.panel-list-item').forEach(x => x.classList.remove('active'));
     el.classList.add('active');
-    const meta = PARTIDOS[c.partido]||{sigla:'?',color:'#888',bg:'#eee'};
+    const meta = PARTIDOS[c.partido] || { sigla: '?', color: '#888', bg: '#eee' };
     const cv = document.getElementById('panel-cv');
+
+    const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
+    const region = c.departamento || c.circunscripcion || '';
+
     cv.innerHTML = `
-        <div class="box-header-cv">
-            <div class="box-datos-header-cv">
-                <div class="cv-name">${c.nombre}</div>
-                ${c.edad?`<div class="cv-section cv-section-edad"><div class="cv-section-lbl"></div><div class="cv-section-val">${c.edad} años</div></div>`:''}
-                <div class="cv-region">
-                    <div class="cv-section-lbl cv-region">Región: ${c.departamento || c.circunscripcion || ''}</div>
-                </div>                
-            </div>
-            <div class="box-datos-header-cv-avatar" style="background:${meta.bg};"><img src="${c.fotoCandidato}"></div>
+    <div class="ficha-wrap">
+
+      <!-- Botón cerrar -->
+      <div class="ficha-close-row">
+        <button class="ficha-close-btn" onclick="closeFichaCV()">✕</button>
+      </div>
+
+      <!-- Encabezado -->
+      <div class="ficha-header-card">
+        <div class="ficha-header-inner">
+          <div class="ficha-header-left">
+            <div class="ficha-nombre">${c.nombre}</div>
+            ${c.edad ? `<div class="ficha-edad">${c.edad} años</div>` : ''}
+            ${region ? `<div class="ficha-region">Región: ${region}</div>` : ''}
+          </div>
+          <div class="ficha-avatar-wrap">
+            <img src="${foto}" alt="${c.nombre}" class="ficha-avatar-img" onerror="this.src='./img/fotos-candidatos/avatar-candidato.png'">
+          </div>
         </div>
-        
-        
-        <div class="cv-meta">${c.partido} · ${c.tipoCandidatura} · ${c.departamento||c.circunscripcion||''}</div>
-        
-        ${c.profesion?`<div class="cv-section"><div class="cv-section-lbl">Profesión</div><div class="cv-section-val">${c.profesion}</div></div>`:''}
-        ${c.educacionGrupo?`<div class="cv-section"><div class="cv-section-lbl">Formación</div><div class="cv-section-val">${c.educacionGrupo}</div></div>`:''}
-        ${c.expPublica?`<div class="cv-section"><div class="cv-section-lbl">Experiencia pública</div><div class="cv-section-val">${c.expPublica}</div></div>`:''}
-        ${c.ingresos?`<div class="cv-section"><div class="cv-section-lbl">Ingresos declarados</div><div class="cv-section-val">${c.ingresos}</div></div>`:''}
-        ${c.inmuebles?`<div class="cv-section"><div class="cv-section-lbl">Bienes inmuebles</div><div class="cv-section-val">${c.inmuebles}</div></div>`:''}
-        ${c.sentencias?`<div class="cv-section"><div class="cv-section-lbl">Sentencias</div><div class="cv-section-val">${c.sentencias}</div></div>`:''}
-        <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap">
-            ${c.delitos?'<span class="cv-tag tag-alerta">⚠ Con sentencias</span>':''}
-            ${c.expInternacional==='Sí'?'<span class="cv-tag tag-info">🌐 Exp. internacional</span>':''}
-            ${c.extranjero?'<span class="cv-tag tag-info">🛂 Residente extranjero</span>':''}
-            ${c.millennial?'<span class="cv-tag tag-ok">⚡ Millennial</span>':''}
+      </div>
+
+      <!-- Perfil profesional -->
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Cuál es su perfil profesional?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-3">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Profesión declarada</div>
+            <div class="ficha-field-value">${c.profesion || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Formación más alta alcanzada</div>
+            <div class="ficha-field-value">${c.formacion || c.educacionGrupo || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Campo principal de especialización</div>
+            <div class="ficha-field-value">${c.especializacion || 'No declara'}</div>
+          </div>
         </div>
+      </div>
+
+      <!-- Experiencia en el Estado -->
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Qué experiencia tiene en el Estado o en funciones de poder?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-3">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Experiencia en el sector público</div>
+            <div class="ficha-field-value">${c.expPublica || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Rol más relevante declarado</div>
+            <div class="ficha-field-value">${c.experienciaLaboral || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Experiencia internacional</div>
+            <div class="ficha-field-value">${c.expInternacional || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trayectoria política + Sentencias (dos columnas) -->
+      <div class="ficha-row-2">
+        <div class="ficha-card">
+          <div class="ficha-card-title">¿Ha tenido trayectoria política previa?</div>
+          <hr class="ficha-divider">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Cargos de elección popular</div>
+            <div class="ficha-field-value">${c.cargosEleccion || 'No registra'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Cargos políticos o partidarios</div>
+            <div class="ficha-field-value">${c.cargosPartidarios || 'No registra'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Continuidad política</div>
+            <div class="ficha-field-value">${c.continuidad || 'No declara'}</div>
+          </div>
+        </div>
+
+        <div class="ficha-card">
+          <div class="ficha-card-title">¿Registra sentencias o procesos judiciales?</div>
+          <hr class="ficha-divider">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Sentencias judiciales declaradas</div>
+            <div class="ficha-field-value ${c.delitos ? 'ficha-alerta' : ''}">${c.sentencias || 'No registra sentencias'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Demandas fundadas en su contra</div>
+            <div class="ficha-field-value">${c.demandas || 'No registra'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingresos -->
+      <div class="ficha-card ficha-card-ingresos">
+        <div class="ficha-card-title">¿Cuánto dinero declara haber ganado?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-2">
+          <div class="ficha-ingresos-amount">
+            <div class="ficha-field-label">Ingresos anuales declarados (último año)</div>
+            <div class="ficha-big-amount">${c.ingresos || 'No declara'}</div>
+          </div>
+          <div class="ficha-ingresos-origen">
+            <div class="ficha-field-label">Origen principal de los ingresos</div>
+            <div class="ficha-field-value">${c.origenIngresos || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Patrimonio -->
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Qué patrimonio declara?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-2">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Bienes inmuebles</div>
+            <div class="ficha-field-value">${c.inmuebles || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Bienes muebles (vehículos u otros)</div>
+            <div class="ficha-field-value">${c.muebles || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio / resumen conjunto -->
+      ${c.bio ? `
+      <div class="ficha-card ficha-card-bio">
+        <div class="ficha-bio-title">¿Qué nos dice su hoja de vida en conjunto?</div>
+        <div class="ficha-bio-text">${c.bio}</div>
+      </div>` : ''}
+
+      <!-- Fuente -->
+      <div class="ficha-card ficha-card-source">
+        <div class="ficha-card-title">¿De dónde sale esta información?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-source-text">
+          <strong>Fuente:</strong><br>
+          Declaración Jurada de Hoja de Vida presentada ante el Jurado Nacional de Elecciones (JNE).
+        </div>
+      </div>
+
+      <!-- Descarga PDF -->
+      <div class="ficha-pdf-row">
+        <span class="ficha-pdf-label">Transparencia:</span>
+        ${c.pdfLink
+          ? `<a class="ficha-pdf-btn" href="${c.pdfLink}" target="_blank" rel="noopener">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+               Descargar hoja de vida original en PDF
+             </a>`
+          : `<span class="ficha-pdf-btn ficha-pdf-disabled">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+               Descargar hoja de vida original en PDF
+             </span>`
+        }
+      </div>
+
+    </div>
   `;
 }
 
@@ -529,7 +672,7 @@ function buildHemiciclo(containerId, tipo, nivel) {
   const totalActual = Object.values(data).reduce((a,b)=>a+b,0);
 
   document.getElementById(containerId).innerHTML = `
-    <div class="hem-logos-col">${leftHTML}</div>
+<div class="hem-logos-col">${leftHTML}</div>
     <div class="hem-svg-wrap">
       ${svgHTML}
       <div class="hem-total-badge">${totalActual} / ${total} escaños</div>
@@ -538,12 +681,34 @@ function buildHemiciclo(containerId, tipo, nivel) {
   `;
 }
 
-function setHemTab(nivel, btn) {
-  hemTab = nivel;
-  document.querySelectorAll('.hem-tab').forEach(b=>b.classList.remove('active'));
+// ── HEM-IMAGE-BLOCK: función genérica reutilizable ──────────────────────────
+// Funciona con cualquier .hem-image-block: lee las imágenes desde data-attrs
+// del bloque padre, hace fade suave y marca el tab activo dentro de ese bloque.
+function setHemImageTab(btn) {
+  const block = btn.closest('.hem-image-block');
+  if (!block) return;
+
+  // Actualizar tab activo SOLO dentro de este bloque
+  block.querySelectorAll('.hem-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  buildHemiciclo('hem-sen','sen',nivel);
-  buildHemiciclo('hem-dip','dip',nivel);
+
+  // Determinar qué imagen mostrar (tab A = primero, tab B = segundo)
+  const tabs = [...block.querySelectorAll('.hem-tab')];
+  const idx  = tabs.indexOf(btn);
+  const imgKey = idx === 0 ? 'tabAImg' : 'tabBImg';
+  const newSrc = block.dataset[imgKey];
+
+  const img = block.querySelector('.hem-img');
+  if (!img || !newSrc || img.getAttribute('src') === newSrc) return;
+
+  // Fade out → swap src → fade in
+  img.classList.add('fading');
+  const alt = btn.textContent.trim();
+  setTimeout(() => {
+    img.src = newSrc;
+    img.alt = `Hemiciclo ${alt}`;
+    img.classList.remove('fading');
+  }, 250);
 }
 
 // ── MAPA ──────────────────────────────────────

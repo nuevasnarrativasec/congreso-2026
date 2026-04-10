@@ -118,25 +118,38 @@
 
     <!-- ══ HEMICICLOS ════════════════════════════ -->
     <section id="hemiciclos">
-    <div class="max-w">
-        <p class="sec-label">¿Cómo quedan conformadas las bancadas?</p>
-        <h2 class="sec-title">Los <em>hemiciclos</em></h2>
-        <div class="divider"></div>
-        <div class="hem-tabs">
-        <button class="hem-tab active" onclick="setHemTab('nacional',this)">Nivel nacional</button>
-        <button class="hem-tab" onclick="setHemTab('regional',this)">Nivel regional</button>
+        <div class="max-w">
+            <h2 class="sec-title">¿Cómo quedan conformadas las bancadas?</h2>           
+            <!-- hem-image-block: bloque reutilizable. Pasar id único, tabs y rutas de imágenes via data-attrs -->
+            <div class="hem-image-block"
+                 data-block="bancadas"
+                 data-tab-a-label="Nivel nacional"
+                 data-tab-a-img="./img/imagen-hemiciclo-1.png"
+                 data-tab-b-label="Nivel regional"
+                 data-tab-b-img="./img/imagen-hemiciclo-2.png">
+                <div class="hem-tabs">
+                    <button class="hem-tab active" onclick="setHemImageTab(this)">Nivel nacional</button>
+                    <button class="hem-tab"         onclick="setHemImageTab(this)">Nivel regional</button>
+                </div>
+                <div class="hem-img-wrap">
+                    <img class="hem-img" src="./img/imagen-hemiciclo-1.png" alt="Hemiciclo nivel nacional">
+                </div>
+            </div>
+            <div class="hem-image-block"
+                 data-block="bancadasDiputados"
+                 data-tab-a-label="Diputados"
+                 data-tab-a-img="./img/imagen-hemiciclo-1.png"
+                 data-tab-b-label="Regiones"
+                 data-tab-b-img="./img/imagen-hemiciclo-2.png">
+                <div class="hem-tabs">
+                    <button class="hem-tab active" onclick="setHemImageTab(this)">Diputados</button>
+                    <button class="hem-tab"         onclick="setHemImageTab(this)">Regiones</button>
+                </div>
+                <div class="hem-img-wrap">
+                    <img class="hem-img" src="./img/imagen-hemiciclo-1.png" alt="Hemiciclo nivel nacional">
+                </div>
+            </div>
         </div>
-        <div class="hem-blocks">
-        <div>
-            <p class="hem-block-title">Senadores · 60 escaños</p>
-            <div id="hem-sen" class="hem-layout"></div>
-        </div>
-        <div>
-            <p class="hem-block-title">Diputados · 130 escaños</p>
-            <div id="hem-dip" class="hem-layout"></div>
-        </div>
-        </div>
-    </div>
     </section>
 
     <!-- ══ MAPA ══════════════════════════════════ -->
