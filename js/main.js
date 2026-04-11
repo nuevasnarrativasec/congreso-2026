@@ -709,7 +709,29 @@ function setHemImageTab(btn) {
     img.alt = `Hemiciclo ${alt}`;
     img.classList.remove('fading');
   }, 250);
+
+  // Alternar grupos de hotspots (--a / --b)
+  const suffix = idx === 0 ? 'a' : 'b';
+  block.querySelectorAll('.hem-hotspots').forEach(g => {
+    g.hidden = !g.classList.contains(`hem-hotspots--${suffix}`);
+  });
 }
+
+// Click/tap en hotspot → toggle tooltip (para móvil)
+document.addEventListener('click', function(e) {
+  const hs = e.target.closest('.hem-hotspot');
+  if (hs) {
+    // Cerrar otros hotspots abiertos en el mismo bloque
+    hs.closest('.hem-img-wrap').querySelectorAll('.hem-hotspot.is-open').forEach(h => {
+      if (h !== hs) h.classList.remove('is-open');
+    });
+    hs.classList.toggle('is-open');
+    e.stopPropagation();
+    return;
+  }
+  // Click fuera → cerrar todos
+  document.querySelectorAll('.hem-hotspot.is-open').forEach(h => h.classList.remove('is-open'));
+});
 
 // ── MAPA ──────────────────────────────────────
 function setMapaFiltro(tipo, btn) {
@@ -729,18 +751,23 @@ function showMapaResults(regionId) {
     c.tipoCandidatura === mapaFiltro &&
     norm(c.departamento||c.circunscripcion||'').includes(norm(regionName))
   );
+  const regionHeader = `<div class="mapa-region-header">
+    <span class="region-name-badge">${regionName}</span>
+    <span class="mapa-region-count">${filtered.length} candidato${filtered.length!==1?'s':''}</span>
+  </div>`;
   if(!filtered.length) {
-    lista.innerHTML = `<span class="region-name-badge">${regionName}</span><p class="mapa-empty">Sin candidatos registrados en esta región</p>`;
+    lista.innerHTML = regionHeader + `<p class="mapa-empty">Sin candidatos registrados en esta región</p>`;
     return;
   }
-  lista.innerHTML = `<span class="region-name-badge">${regionName}</span>` +
+  lista.innerHTML = regionHeader +
     filtered.map(c=>{
-      const meta=PARTIDOS[c.partido]||{sigla:'?',color:'#888',bg:'#eee'};
+      const meta = PARTIDOS[c.partido] || {logo:'', sigla:'?', color:'#888', bg:'#eee'};
+      const foto = c.fotoCandidato || '';
       return `<div class="mapa-cand-item">
-        <div class="mapa-cand-avatar" style="background:${meta.bg};color:${meta.color}">${initiales(c.nombre)}</div>
-        <div>
+        <img class="mapa-cand-logo" src="${meta.logo}" alt="${c.partido}">
+        <img class="mapa-cand-photo" src="${foto}" alt="${c.nombre}">
+        <div class="mapa-cand-info">
           <div class="mapa-cand-name">${c.nombre}</div>
-          <div class="mapa-cand-partido">${meta.sigla} · ${c.partido}</div>
         </div>
       </div>`;
     }).join('');
@@ -843,8 +870,6 @@ function setFiltroGlobal(tipo, btn) {
 // ── INIT ──────────────────────────────────────
 (function init() {
   renderBancadas();
-  buildHemiciclo('hem-sen','sen','nacional');
-  buildHemiciclo('hem-dip','dip','nacional');
   initMapa();
   renderDatosStats();
   initParallax();
