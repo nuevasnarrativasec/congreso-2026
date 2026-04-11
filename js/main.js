@@ -787,8 +787,51 @@ function initMapa() {
 }
 
 // ── PARALLAX STORIES ──────────────────────────
-function calcPxStats() {
-  const sub = candidatos.filter(c => c.tipoCandidatura === 'diputado');
+let pxFiltroActual = 'diputado';
+
+function setPxFiltro(tipo, btn) {
+  pxFiltroActual = tipo;
+  // Update button styles
+  document.querySelectorAll('.px-intro-tab').forEach(b => b.classList.remove('px-intro-tab--active'));
+  btn.classList.add('px-intro-tab--active');
+  // Recalculate and update stats
+  const st = calcPxStats(tipo);
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  set('px-stat-total',     st.total   || '—');
+  set('px-stat-delitos',   st.delitos || '—');
+  set('px-stat-mujeres',   st.mujeres ? st.mujeres + '%' : '—');
+  set('px-stat-univ',      st.univ    ? st.univ    + '%' : '—');
+  set('px-stat-delitos-2', st.delitos || '—');
+  // Update faces grid to reflect tipo
+  const grid = document.getElementById('px-faces-grid');
+  if (grid) {
+    grid.innerHTML = '';
+    const sample = candidatos.filter(c => c.tipoCandidatura === tipo).slice(0, 84);
+    sample.forEach((c, i) => {
+      const face = document.createElement('div');
+      face.className = 'px-face ' + (c.delitos ? (i % 3 === 0 ? 'px-face--red' : 'px-face--orange') : 'px-face--gray');
+      face.title = c.nombre + ' · ' + c.partido;
+      face.textContent = initiales(c.nombre);
+      grid.appendChild(face);
+    });
+  }
+  // Swap BG images (BG 1 y los px-bg-img--bg de los demás)
+  document.querySelectorAll('.px-bg-img[data-src-dip]').forEach(img => {
+    img.src = tipo === 'diputado' ? img.dataset.srcDip : img.dataset.srcSen;
+  });
+  // Regenerar hemiciclos SVG con datos del tipo correcto
+  const hemKey  = tipo === 'diputado' ? 'dip' : 'sen';
+  const total   = tipo === 'diputado' ? 130 : 60;
+  const hemData = (HEM && HEM[hemKey] && HEM[hemKey].nacional) ? HEM[hemKey].nacional : {};
+  ['px-hem-2', 'px-hem-3', 'px-hem-4'].forEach(id => {
+    const wrap = document.getElementById(id);
+    if (wrap) wrap.innerHTML = buildHemSVG(hemData, total);
+  });
+}
+
+function calcPxStats(tipo) {
+  tipo = tipo || pxFiltroActual || 'diputado';
+  const sub = candidatos.filter(c => c.tipoCandidatura === tipo);
   const total = sub.length;
   const delitos = sub.filter(c => c.delitos).length;
   const mujeres = total ? Math.round(sub.filter(c => c.genero === 'F').length / total * 100) : 0;
@@ -798,9 +841,9 @@ function calcPxStats() {
 
 function initPxStories() {
   /* ── 1. Stats ── */
-  const st = calcPxStats();
+  const st = calcPxStats(pxFiltroActual);
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-  set('px-stat-total',     st.total);
+  set('px-stat-total',     st.total || '—');
   set('px-stat-delitos',   st.delitos);
   set('px-stat-mujeres',   st.mujeres + '%');
   set('px-stat-univ',      st.univ + '%');

@@ -491,8 +491,47 @@ span.indicacion{
 /* ── PARALLAX STORIES ─────────────────────── */
 #px-stories{
   position:relative;
-  /* total height = N scenes × scene-height; set by JS */
   background:transparent;
+}
+
+/* ── Intro: título + filtros ─── */
+#px-intro{
+  position:relative;
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:40vh;
+  padding:60px 24px 70px;
+  text-align:center;
+}
+.px-intro-title{
+  font-family:'ivy-mode',serif;
+  font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:700;
+  color:#111;
+  margin:0 0 36px;
+  letter-spacing:-.01em;
+}
+.px-intro-tabs{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.px-intro-tab{
+  font-family:'DM Sans',sans-serif;
+  font-size:.78rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:14px 32px;border-radius:100px;cursor:pointer;
+  border:2px solid #111;
+  background:transparent;color:#111;
+  transition:background .25s, color .25s;
+}
+.px-intro-tab--active,
+.px-intro-tab:hover{
+  background:#111;color:#fff;
 }
 
 /* ── Fixed backgrounds container ─── */
@@ -512,10 +551,30 @@ span.indicacion{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#0c0c0c;
+  background:#fff;
   opacity:0;                     /* crossfade via JS */
   transition:opacity .7s ease;
   will-change:opacity;
+}
+
+/* Imagen de fondo intercambiable por filtro (BGs 2–5) */
+.px-bg-img--bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  z-index:0;
+}
+.px-bg-img{
+    margin: 0 auto;
+    max-width: 500px;
+}
+/* Asegurar que el contenido de cada BG quede encima de la imagen */
+.px-bg > *:not(.px-bg-img--bg){
+  position:relative;
+  z-index:1;
 }
 
 /* Hemiciclo SVG ghost */
@@ -548,7 +607,17 @@ span.indicacion{
 .px-icon--verde { color:#5ac891;border-color:#5ac89155; }
 
 /* Faces background */
-.px-bg--faces{ background:#0c0c0c; }
+.px-bg--faces{ background:#fff; }
+.px-bg--faces img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 75%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
 .px-faces-grid{
   position:absolute;inset:0;
   display:flex;flex-wrap:wrap;
@@ -886,3 +955,75 @@ footer a:hover{text-decoration:underline}
   cursor: default;
 }
 .ficha-pdf-disabled:hover { background: #1a1a1a; }
+
+.box-metodologia{
+    border: 1px solid #707070;
+    box-sizing: border-box;
+    margin: 80px auto;
+    max-width: 550px;
+    padding: 30px 40px;
+}
+    .box-metodologia h6{
+        font: 1rem/1.5 "Roboto", sans-serif;
+        font-weight: 800;
+        margin: 0 auto;
+        text-transform: uppercase;
+    }
+        .box-metodologia p{
+            font: 1rem/1.6 "Roboto", sans-serif;
+            font-weight: 400;
+            text-align: left;
+        }
+
+/* ============================================
+   FOOTER
+============================================ */
+.footer-section {
+    background: #1a1a1a;
+    color: white;
+    padding: 30px 40px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-comercio {
+    display: block;
+    margin: 20px auto;
+    max-width: 130px;
+}
+
+span.separador-logo {
+    background-color: #fff;
+    display: block;
+    height: 1px;
+    margin: 0 auto 20px;
+    max-width: 600px;
+}
+
+.footer-content ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 20px 30px 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.footer-content ul li {
+    margin-bottom: 15px;
+}
+
+.footer-content ul li h4 {
+    font: 0.9rem/1.3 'Roboto', sans-serif;
+    font-weight: 800;
+}
+
+.footer-content ul li p {
+    font: 0.9rem/1.6 'Roboto', sans-serif;
+    font-weight: 300;
+}
