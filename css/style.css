@@ -355,7 +355,10 @@ span.indicacion{
 #peru-svg{
     max-width: 400px;
 }
-@media(max-width:800px){.mapa-container{grid-template-columns:1fr}}
+@media(max-width:800px){
+  .mapa-container{grid-template-columns:1fr}
+  .mapa-map-wrap{order:-1}
+}
 .mapa-sidebar{
   padding:24px;
   background:var(--paper);overflow-y:auto;max-height:640px;
@@ -769,7 +772,7 @@ footer a:hover{text-decoration:underline}
 }
 .ficha-header-left { flex: 1; }
 .ficha-nombre {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.55rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -1026,4 +1029,58 @@ span.separador-logo {
 .footer-content ul li p {
     font: 0.9rem/1.6 'Roboto', sans-serif;
     font-weight: 300;
+}
+
+
+@media(max-width: 640px){
+
+    #hero{
+        padding: 25px 10px 0;
+    }
+        .hero-sub{
+            line-height: 1.4;
+        }
+    .bancadas-grid{ 
+        grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    }
+    #bancadas{
+        padding: 70px 10px;
+    }
+        .panel-list{
+            width: 130px;
+        }
+        .panel-list-item{
+            gap: 1px;
+            padding: 12px 0;
+        }
+        .panel-cv{
+            padding: 10px;
+        }
+            .ficha-header-card{
+                padding: 18px 10px 24px;
+            }
+            .ficha-header-inner{
+                gap: 5px;
+            }
+            .ficha-avatar-wrap{
+                height: 60px;
+                width: 60px;                
+            }
+            .ficha-nombre{
+                font-size: 1.1rem;
+            }
+    #hemiciclos,
+    #mapa{
+        padding: 30px 20px;
+    }
+        .hem-img-wrap{
+            width: 95%;
+        }
+
+    .footer-content ul{
+        display: block;
+        margin: 20px auto 0;
+        text-align: left;
+    }
+
 }

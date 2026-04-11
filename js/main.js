@@ -32,7 +32,7 @@ const candidatos = [
         inmuebles: 'No declara bienes inmuebles',
         muebles: 'No declara bienes muebles',
         bio: '',
-        pdfLink: null,
+        pdfLink: 'https://drive.google.com/file/d/1vArAG5OZQ-lx-ywM9mbBnz5ehW_69Hoq/view?usp=sharing',
         extranjero: false,
         millennial: false,
         movilidad: false,
