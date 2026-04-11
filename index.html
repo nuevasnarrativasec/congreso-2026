@@ -216,42 +216,138 @@
     </div>
     </section>
 
-    <!-- ══ DATOS PARALLAX ════════════════════════ -->
-    <section id="datos">
-    <div class="datos-fixed-bg" id="datos-bg">
-        <!-- hemiciclo ghost SVG as fixed bg - will be injected by JS -->
-    </div>
-    <div class="datos-content max-w">
-        <h2 class="sec-title" style="color:#000;margin-bottom:48px">Datos varios</h2>
-        <div class="datos-tabs">
-        <button class="datos-tab active" onclick="setDatosTab('diputado',this)">Datos diputados</button>
-        <button class="datos-tab" onclick="setDatosTab('senador',this)">Datos senadores</button>
-        </div>
-        <div id="datos-diputado">
-        <div class="dato-scene">
-            <div class="dato-cards">
-            <div class="dato-card"><div class="dato-number" id="dn-total-dip">—</div><div class="dato-label">Total candidatos</div><div class="dato-desc">Postulantes al cargo de diputado registrados en el JNE para las elecciones 2026.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-delitos-dip">—</div><div class="dato-label">Con sentencias</div><div class="dato-desc">Candidatos que registran al menos una sentencia o proceso penal declarado en su hoja de vida.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-mujeres-dip">—</div><div class="dato-label">Mujeres</div><div class="dato-desc">Porcentaje de candidatas mujeres al cargo de diputada en la lista completa.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-univ-dip">—</div><div class="dato-label">Universitarios</div><div class="dato-desc">Candidatos que declaran formación universitaria completa o incompleta en su hoja de vida.</div></div>
-            </div>
-        </div>
-        </div>
-        <div id="datos-senador" style="display:none">
-        <div class="dato-scene">
-            <div class="dato-cards">
-            <div class="dato-card"><div class="dato-number" id="dn-total-sen">—</div><div class="dato-label">Total candidatos</div><div class="dato-desc">Postulantes al Senado registrados en el JNE para las elecciones 2026.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-delitos-sen">—</div><div class="dato-label">Con sentencias</div><div class="dato-desc">Candidatos al Senado que declaran sentencias o procesos penales en su hoja de vida.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-mujeres-sen">—</div><div class="dato-label">Mujeres</div><div class="dato-desc">Porcentaje de candidatas mujeres al Senado en la lista completa.</div></div>
-            <div class="dato-card"><div class="dato-number" id="dn-univ-sen">—</div><div class="dato-label">Universitarios</div><div class="dato-desc">Candidatos al Senado que declaran formación universitaria en su hoja de vida.</div></div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>
+    <!-- ══ PARALLAX STORIES ════════════════════════ -->
+    <section id="px-stories">
 
-    <!-- ══ PHOTO STRIP ═══════════════════════════ -->
-    <div id="fotostrip"></div>
+      <!-- Fondos apilados: todos fixed, hacen crossfade con el scroll -->
+      <div id="px-bgs" aria-hidden="true">
+
+        <!-- BG 1: Total candidatos -->
+        <div class="px-bg" id="px-bg-1">
+          <div class="px-hem-wrap" id="px-hem-1"></div>
+          <div class="px-center-icon px-icon--rojo">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+              <rect x="19" y="14" width="20" height="26" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <line x1="23" y1="22" x2="35" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="23" y1="27" x2="35" y2="27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="23" y1="32" x2="30" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="38" cy="40" r="6" stroke="currentColor" stroke-width="1.8"/>
+              <line x1="42.2" y1="44.2" x2="47" y2="49" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- BG 2: Con sentencias -->
+        <div class="px-bg" id="px-bg-2">
+          <div class="px-hem-wrap" id="px-hem-2"></div>
+          <div class="px-center-icon px-icon--azul">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+              <circle cx="32" cy="26" r="8" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M16 50c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="32" y1="14" x2="32" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="43" y1="17" x2="45" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="21" y1="17" x2="19" y2="15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- BG 3: Mujeres -->
+        <div class="px-bg" id="px-bg-3">
+          <div class="px-hem-wrap" id="px-hem-3"></div>
+          <div class="px-center-icon px-icon--morado">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+              <rect x="27" y="38" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/>
+              <rect x="22" y="30" width="20" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M28 30v-4a4 4 0 118 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="26" y1="54" x2="38" y2="54" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="22" y1="36" x2="19" y2="36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="45" y1="36" x2="42" y2="36" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- BG 4: Universitarios -->
+        <div class="px-bg" id="px-bg-4">
+          <div class="px-hem-wrap" id="px-hem-4"></div>
+          <div class="px-center-icon px-icon--verde">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 30l18-10 18 10-18 10-18-10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M22 35v10c0 0 4 4 10 4s10-4 10-4V35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="46" y1="30" x2="46" y2="42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="46" cy="44" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- BG 5: Rostros -->
+        <div class="px-bg px-bg--faces" id="px-bg-5">
+          <div class="px-faces-grid" id="px-faces-grid"></div>
+        </div>
+
+      </div><!-- /#px-bgs -->
+
+      <!-- Escenas scrolleables: solo contienen la tarjeta -->
+      <div class="px-scene" id="pxs-1">
+        <div class="px-card-wrap">
+          <div class="px-card">
+            <div class="px-tag">Dato 01</div>
+            <div class="px-number" id="px-stat-total">—</div>
+            <div class="px-unit">candidatos registrados</div>
+            <p class="px-desc">Postulantes al cargo de diputado registrados ante el JNE para las elecciones generales 2026.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-scene" id="pxs-2">
+        <div class="px-card-wrap">
+          <div class="px-card">
+            <div class="px-tag">Dato 02</div>
+            <div class="px-number" id="px-stat-delitos">—</div>
+            <div class="px-unit">con sentencias registradas</div>
+            <p class="px-desc">Candidatos que declaran al menos una sentencia o proceso penal en su hoja de vida ante el JNE.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-scene" id="pxs-3">
+        <div class="px-card-wrap">
+          <div class="px-card">
+            <div class="px-tag">Dato 03</div>
+            <div class="px-number" id="px-stat-mujeres">—</div>
+            <div class="px-unit">son mujeres candidatas</div>
+            <p class="px-desc">Porcentaje de candidatas mujeres al cargo de diputada en la lista completa inscrita en el JNE.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-scene" id="pxs-4">
+        <div class="px-card-wrap">
+          <div class="px-card">
+            <div class="px-tag">Dato 04</div>
+            <div class="px-number" id="px-stat-univ">—</div>
+            <div class="px-unit">tienen formación universitaria</div>
+            <p class="px-desc">Candidatos que declaran educación universitaria completa o incompleta en su hoja de vida.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-scene" id="pxs-5">
+        <div class="px-card-wrap">
+          <div class="px-card px-card--accent">
+            <div class="px-tag px-tag--accent">Bajo la lupa</div>
+            <div class="px-number px-number--accent" id="px-stat-delitos-2">—</div>
+            <div class="px-unit">candidatos con antecedentes</div>
+            <p class="px-desc"><strong id="px-delitos-nombres">Dos de ellos</strong> registran dos o más sentencias acumuladas.<br>
+            <em>*Se consideran las sentencias declaradas ante el JNE, independientemente de la modalidad o el cumplimiento.</em></p>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
     <!-- ══ FOOTER ════════════════════════════════ -->
     <footer>

@@ -443,14 +443,7 @@ span.indicacion{
   min-height:200vh;
   overflow:hidden;
 }
-.datos-fixed-bg{
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  z-index:0;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;
-  transition:opacity .6s;
-  pointer-events:none;
-}
+.datos-fixed-bg{ display:none; /* replaced by #px-bgs */ }
 .datos-fixed-bg.vis{opacity:1}
 .datos-fixed-bg svg{
   width:55%;max-width:600px;height:auto;opacity:.07;
@@ -495,19 +488,154 @@ span.indicacion{
 .dato-label{font-family:'DM Sans',sans-serif;font-size:.78rem;color:#a09a94;margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em}
 .dato-desc{font-size:.88rem;color:#c8c4bc;line-height:1.55;font-style:italic}
 
-/* ── PHOTO STRIP ─────────────────────────── */
-#fotostrip{
-  padding:50px 40px;background:var(--paper-d);
-  display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+/* ── PARALLAX STORIES ─────────────────────── */
+#px-stories{
+  position:relative;
+  /* total height = N scenes × scene-height; set by JS */
+  background:transparent;
 }
-.strip-avatar{
+
+/* ── Fixed backgrounds container ─── */
+#px-bgs{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  opacity:0;                     /* hidden until #px-stories enters viewport */
+  transition:opacity .5s;
+}
+#px-bgs.px-vis{ opacity:1; }
+
+.px-bg{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0c0c0c;
+  opacity:0;                     /* crossfade via JS */
+  transition:opacity .7s ease;
+  will-change:opacity;
+}
+
+/* Hemiciclo SVG ghost */
+.px-hem-wrap{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.px-hem-wrap svg{
+  width:72%;max-width:720px;height:auto;
+  opacity:.11;filter:saturate(.4);
+}
+
+/* Center icon */
+.px-center-icon{
+  position:relative;z-index:2;
+  width:72px;height:72px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(255,255,255,.15);
+}
+.px-center-icon svg{ width:44px;height:44px; }
+.px-icon--rojo  { color:#e55a5a;border-color:#e55a5a55; }
+.px-icon--azul  { color:#5a9de5;border-color:#5a9de555; }
+.px-icon--morado{ color:#9b72c8;border-color:#9b72c855; }
+.px-icon--verde { color:#5ac891;border-color:#5ac89155; }
+
+/* Faces background */
+.px-bg--faces{ background:#0c0c0c; }
+.px-faces-grid{
+  position:absolute;inset:0;
+  display:flex;flex-wrap:wrap;
+  align-content:center;justify-content:center;
+  gap:8px;padding:24px;overflow:hidden;
+}
+.px-face{
   width:52px;height:52px;border-radius:50%;
-  background:var(--paper);border:2px solid #fff;
-  font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;
-  color:var(--muted);display:flex;align-items:center;justify-content:center;
-  transition:transform .2s;cursor:default;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:700;
+  flex-shrink:0;
 }
-.strip-avatar:hover{transform:scale(1.15)}
+.px-face--gray  { background:#1c1c1c;color:#484848;border:1.5px solid #252525; }
+.px-face--orange{ background:#2e1508;color:#e06830;border:1.5px solid #e0683033; }
+.px-face--red   { background:#2e0808;color:#e05555;border:1.5px solid #e0555533; }
+
+/* ── Scrollable scenes ─── */
+.px-scene{
+  position:relative;
+  height:150vh;               /* scrollable room per scene */
+  z-index:2;
+  display:flex;
+  align-items:flex-end;       /* card anchored to bottom of scene */
+  justify-content:center;
+  padding-bottom:12vh;
+}
+
+/* ── Card ─── */
+.px-card-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  pointer-events:none;
+}
+.px-card{
+  pointer-events:all;
+  background:#fff;
+  border-radius:20px;
+  padding:36px 44px 40px;
+  max-width:440px;width:88%;
+  box-shadow:0 32px 80px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.2);
+  /* initial hidden state */
+  transform:translateY(70px);
+  opacity:0;
+  transition:transform .95s cubic-bezier(.22,.68,0,1.15), opacity .8s ease;
+  will-change:transform,opacity;
+}
+.px-card.px-in{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* Card dark variant (scene 5) */
+.px-card--accent{
+  background:#111;
+  border:1px solid rgba(255,255,255,.1);
+  color:#f0ece4;
+}
+
+/* Card internals */
+.px-tag{
+  font-family:'DM Sans',sans-serif;
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#999;margin-bottom:14px;
+}
+.px-tag--accent{ color:#b8963e; }
+.px-number{
+  font-family:'Playfair Display',serif;
+  font-size:4.2rem;font-weight:900;
+  color:var(--red);line-height:1;margin-bottom:6px;
+}
+.px-number--accent{ color:#e05555; }
+.px-unit{
+  font-family:'DM Sans',sans-serif;
+  font-size:.82rem;font-weight:600;
+  color:#444;text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:16px;
+}
+.px-card--accent .px-unit{ color:#777; }
+.px-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:.9rem;color:#555;line-height:1.6;
+}
+.px-card--accent .px-desc{ color:#999;font-size:.85rem; }
+.px-card--accent .px-desc strong{ color:#e05555; }
+.px-card--accent .px-desc em{ color:#555;font-size:.8rem; }
 
 /* ── FOOTER ──────────────────────────────── */
 footer{

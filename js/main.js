@@ -786,83 +786,104 @@ function initMapa() {
   });
 }
 
-// ── DATOS PARALLAX ────────────────────────────
-function calcDatosStats(tipo) {
-  const sub = candidatos.filter(c=>c.tipoCandidatura===tipo);
+// ── PARALLAX STORIES ──────────────────────────
+function calcPxStats() {
+  const sub = candidatos.filter(c => c.tipoCandidatura === 'diputado');
   const total = sub.length;
-  const delitos = sub.filter(c=>c.delitos).length;
-  const mujeres = total?Math.round(sub.filter(c=>c.genero==='F').length/total*100):0;
-  const univ = total?Math.round(sub.filter(c=>c.educacionGrupo==='universitario').length/total*100):0;
-  return {total, delitos, mujeres, univ};
+  const delitos = sub.filter(c => c.delitos).length;
+  const mujeres = total ? Math.round(sub.filter(c => c.genero === 'F').length / total * 100) : 0;
+  const univ    = total ? Math.round(sub.filter(c => c.educacionGrupo === 'universitario').length / total * 100) : 0;
+  return { total, delitos, mujeres, univ };
 }
 
-function renderDatosStats() {
-  const dip = calcDatosStats('diputado');
-  const sen = calcDatosStats('senador');
-  document.getElementById('dn-total-dip').textContent = dip.total;
-  document.getElementById('dn-delitos-dip').textContent = dip.delitos;
-  document.getElementById('dn-mujeres-dip').textContent = dip.mujeres+'%';
-  document.getElementById('dn-univ-dip').textContent = dip.univ+'%';
-  document.getElementById('dn-total-sen').textContent = sen.total||'—';
-  document.getElementById('dn-delitos-sen').textContent = sen.delitos||'—';
-  document.getElementById('dn-mujeres-sen').textContent = sen.mujeres?sen.mujeres+'%':'—';
-  document.getElementById('dn-univ-sen').textContent = sen.univ?sen.univ+'%':'—';
-}
+function initPxStories() {
+  /* ── 1. Stats ── */
+  const st = calcPxStats();
+  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  set('px-stat-total',     st.total);
+  set('px-stat-delitos',   st.delitos);
+  set('px-stat-mujeres',   st.mujeres + '%');
+  set('px-stat-univ',      st.univ + '%');
+  set('px-stat-delitos-2', st.delitos);
 
-function setDatosTab(tipo, btn) {
-  document.querySelectorAll('.datos-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('datos-diputado').style.display = tipo==='diputado'?'':'none';
-  document.getElementById('datos-senador').style.display = tipo==='senador'?'':'none';
-  // re-trigger card animations
-  document.querySelectorAll('#datos-'+tipo+' .dato-card').forEach(c=>{
-    c.classList.remove('in-view');
-    setTimeout(()=>c.classList.add('in-view'),50);
+  /* ── 2. Hemiciclo SVGs into each bg ── */
+  const hemData  = (HEM && HEM.dip && HEM.dip.nacional) ? HEM.dip.nacional : {};
+  ['px-hem-1','px-hem-2','px-hem-3','px-hem-4'].forEach(id => {
+    const wrap = document.getElementById(id);
+    if (wrap) wrap.innerHTML = buildHemSVG(hemData, 130);
   });
-}
 
-function initParallax() {
-  // Inject ghost hemiciclo SVG into fixed bg
-  const bg = document.getElementById('datos-bg');
-  bg.innerHTML = buildHemSVG(HEM.dip.nacional, 130);
-
-  // Observer for section visibility (fixed bg)
-  const secObs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      bg.classList.toggle('vis', e.isIntersecting);
-      if(!e.isIntersecting) bg.classList.remove('vis');
+  /* ── 3. Faces grid (BG 5) ── */
+  const grid = document.getElementById('px-faces-grid');
+  if (grid) {
+    const dips = candidatos.filter(c => c.tipoCandidatura === 'diputado').slice(0, 84);
+    dips.forEach((c, i) => {
+      const face = document.createElement('div');
+      face.className = 'px-face ' + (c.delitos ? (i % 3 === 0 ? 'px-face--red' : 'px-face--orange') : 'px-face--gray');
+      face.title = c.nombre + ' · ' + c.partido;
+      face.textContent = initiales(c.nombre);
+      grid.appendChild(face);
     });
-  }, {threshold:0.05});
-  secObs.observe(document.getElementById('datos'));
+  }
 
-  // Observer for cards (slide up)
-  const cardObs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('in-view');
+  /* ── 4. Crossfade backgrounds + slide cards on scroll ── */
+  const stories  = document.getElementById('px-stories');
+  const bgsEl    = document.getElementById('px-bgs');
+  const bgEls    = Array.from(document.querySelectorAll('.px-bg'));
+  const scenes   = Array.from(document.querySelectorAll('.px-scene'));
+  const cardEls  = Array.from(document.querySelectorAll('.px-card'));
+  const N        = scenes.length;   // 5
+  const VH       = () => window.innerHeight;
+
+  function onScroll() {
+    const scrollY   = window.scrollY;
+    const storiesTop  = stories.getBoundingClientRect().top + scrollY;
+    const storiesBot  = storiesTop + stories.offsetHeight;
+
+    /* Show/hide the entire fixed-bg container */
+    const visible = scrollY + VH() > storiesTop && scrollY < storiesBot;
+    bgsEl.classList.toggle('px-vis', visible);
+    if (!visible) return;
+
+    /* For each scene compute a "center progress":
+       progress = 0 when scene centre is at viewport bottom
+       progress = 1 when scene centre is at viewport top        */
+    scenes.forEach((scene, i) => {
+      const rect      = scene.getBoundingClientRect();
+      const sceneH    = scene.offsetHeight;
+      const sceneMid  = rect.top + sceneH / 2;         // distance of mid from viewport top
+      // progress: 0 = mid at bottom of viewport, 1 = mid at top
+      const raw       = 1 - sceneMid / VH();
+      const progress  = Math.max(0, Math.min(1, raw));
+
+      /* ── Background opacity: full 1 in the middle third, fades in/out ── */
+      const fadeZone  = 0.28;  // fraction of 0→1 used for fade in/out
+      const fadeIn    = Math.min(1, progress / fadeZone);
+      const fadeOut   = Math.min(1, (1 - progress) / fadeZone);
+      bgEls[i].style.opacity = String(Math.min(fadeIn, fadeOut));
+
+      /* ── Card: slides up once progress > 0.35 ── */
+      const cardStart = 0.35;
+      const cardProg  = Math.max(0, Math.min(1, (progress - cardStart) / 0.22));
+      const ty        = (1 - cardProg) * 70;
+      const op        = cardProg;
+      cardEls[i].style.transform = `translateY(${ty.toFixed(1)}px)`;
+      cardEls[i].style.opacity   = op.toFixed(3);
+      // Override transition for scroll-driven (instant) vs IO-driven (smooth)
+      cardEls[i].style.transition = cardProg > 0 && cardProg < 1
+        ? 'none'
+        : 'transform .95s cubic-bezier(.22,.68,0,1.15), opacity .8s ease';
     });
-  }, {threshold:0.2});
-  document.querySelectorAll('.dato-card').forEach(c=>cardObs.observe(c));
-}
+  }
 
-// ── PHOTO STRIP ───────────────────────────────
-function renderStrip() {
-  const strip = document.getElementById('fotostrip');
-  candidatos.forEach(c=>{
-    const av = document.createElement('div');
-    av.className = 'strip-avatar';
-    const meta=PARTIDOS[c.partido]||{color:'#888',bg:'#eee'};
-    av.style.background = meta.bg;
-    av.style.color = meta.color;
-    av.title = c.nombre + ' · ' + c.partido;
-    av.textContent = initiales(c.nombre);
-    strip.appendChild(av);
-  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once on init
 }
 
 // ── GLOBAL FILTER ─────────────────────────────
 function setFiltroGlobal(tipo, btn) {
   filtroGlobal = tipo;
-  document.querySelectorAll('.hf-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderBancadas();
 }
@@ -871,7 +892,5 @@ function setFiltroGlobal(tipo, btn) {
 (function init() {
   renderBancadas();
   initMapa();
-  renderDatosStats();
-  initParallax();
-  renderStrip();
+  initPxStories();
 })();
