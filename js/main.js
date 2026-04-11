@@ -735,41 +735,41 @@ document.addEventListener('click', function(e) {
 
 // ── MAPA ──────────────────────────────────────
 function setMapaFiltro(tipo, btn) {
-  mapaFiltro = tipo;
-  document.querySelectorAll('.mapa-filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  if(selectedRegion) showMapaResults(selectedRegion);
+    mapaFiltro = tipo;
+    document.querySelectorAll('.mapa-filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    if(selectedRegion) showMapaResults(selectedRegion);
 }
 
 function showMapaResults(regionId) {
-  selectedRegion = regionId;
-  const regionName = REGION_MAP[regionId]||regionId;
-  const lista = document.getElementById('mapa-list');
-  // normalize for matching
-  const norm = s=>(s||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
-  const filtered = candidatos.filter(c=>
-    c.tipoCandidatura === mapaFiltro &&
-    norm(c.departamento||c.circunscripcion||'').includes(norm(regionName))
-  );
-  const regionHeader = `<div class="mapa-region-header">
-    <span class="region-name-badge">${regionName}</span>
-    <span class="mapa-region-count">${filtered.length} candidato${filtered.length!==1?'s':''}</span>
-  </div>`;
-  if(!filtered.length) {
-    lista.innerHTML = regionHeader + `<p class="mapa-empty">Sin candidatos registrados en esta región</p>`;
-    return;
-  }
-  lista.innerHTML = regionHeader +
-    filtered.map(c=>{
-      const meta = PARTIDOS[c.partido] || {logo:'', sigla:'?', color:'#888', bg:'#eee'};
-      const foto = c.fotoCandidato || '';
-      return `<div class="mapa-cand-item">
-        <img class="mapa-cand-logo" src="${meta.logo}" alt="${c.partido}">
-        <img class="mapa-cand-photo" src="${foto}" alt="${c.nombre}">
-        <div class="mapa-cand-info">
-          <div class="mapa-cand-name">${c.nombre}</div>
-        </div>
-      </div>`;
+    selectedRegion = regionId;
+    const regionName = REGION_MAP[regionId]||regionId;
+    const lista = document.getElementById('mapa-list');
+    // normalize for matching
+    const norm = s=>(s||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
+    const filtered = candidatos.filter(c=>
+        c.tipoCandidatura === mapaFiltro &&
+        norm(c.departamento||c.circunscripcion||'').includes(norm(regionName))
+    );
+    const regionHeader = `<div class="mapa-region-header">
+        <span class="region-name-badge">${regionName}</span>
+        <span class="mapa-region-count">( ${filtered.length}${filtered.length!==1? ' )': ' )'}</span>
+    </div>`;
+    if(!filtered.length) {
+        lista.innerHTML = regionHeader + `<p class="mapa-empty">Sin candidatos registrados en esta región</p>`;
+        return;
+    }
+    lista.innerHTML = regionHeader +
+        filtered.map(c=>{
+            const meta = PARTIDOS[c.partido] || {logo:'', sigla:'?', color:'#888', bg:'#eee'};
+            const foto = c.fotoCandidato || '';
+            return `<div class="mapa-cand-item">
+                <img class="mapa-cand-logo" src="${meta.logo}" alt="${c.partido}">
+                <img class="mapa-cand-photo" src="${foto}" alt="${c.nombre}">
+                <div class="mapa-cand-info">
+                <div class="mapa-cand-name">${c.nombre}</div>
+                </div>
+            </div>`;
     }).join('');
 }
 
