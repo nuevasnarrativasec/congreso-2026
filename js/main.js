@@ -121,7 +121,7 @@ function openBancadaPanel(partido, miembros, cardEl) {
     const meta = PARTIDOS[partido]||{sigla:'?',color:'#888',bg:'#eee'};
     list.innerHTML = miembros.map((c,i)=>`
         <div class="panel-list-item" onclick="showCV(${i},this)" data-idx="${i}">
-            <div class="pi-avatar" style="background:${meta.bg};color:${meta.color}"><img src="${meta.logo}"></div>
+            <div class="pi-avatar" style="color:${meta.color}"><img src="${meta.logo}"></div>
             <div class="pi-name">${c.nombre}<br><span style="color: #000;font-size:.72rem">${c.departamento||c.circunscripcion||''}</span></div>
             ${c.delitos?'<span class="pi-badge tag-alerta">⚠</span>':''}
         </div>
