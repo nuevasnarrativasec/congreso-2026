@@ -1,8 +1,8 @@
 // ── LOGOTIPOS DE PARTIDOS Y NÚMERO DE SENADORES Y DIPUTADOS EN EL HEMICICLO ────────────────────────────────
 const PARTIDOS = {
-    'AHORA NACION':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/ahora-nacion.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },
-    'ALIANZA FUERZA Y LIBERTAD':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-fuerza-y-libertad.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
+    'AHORA NACION':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/ahora-nacion.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },    
     'ALIANZA PARA EL PROGRESO':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-para-el-progreso.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
+    'ALIANZA UNIDAD NACIONAL':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-unidad-nacional.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'AVANZA PAÍS':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/avanza-pais.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },
     'COOPERACIÓN POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/cooperacion-popular.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'APRA':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/apra.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },
@@ -10,6 +10,7 @@ const PARTIDOS = {
     'FRENTE DE LA ESPERANZA':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/frente-esperanza.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FRENTE POPULAR AGRÍCOLA FIA DEL PERÚ':  { logo:'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/frepap.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FUERZA POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/fuerza-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
+    'FUERZA Y LIBERTAD':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-fuerza-y-libertad.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'INTEGRIDAD DEMOCRÁTICA':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/integridad-democratica.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'JUNTOS POR EL PERÚ':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/juntos-por-el-peru.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'LIBERTAD POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/libertad-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
