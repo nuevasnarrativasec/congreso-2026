@@ -1082,5 +1082,8 @@ span.separador-logo {
         margin: 20px auto 0;
         text-align: left;
     }
+    #px-stories{
+        padding: 70px 15px;
+    }
 
 }
