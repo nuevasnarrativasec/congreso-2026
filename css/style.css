@@ -400,6 +400,34 @@ span.indicacion{
         bottom: 5%;    
         right: 1.5%;      
     }
+    .hotspot-senadores-1{
+        bottom: 9%;
+        left: 7%;
+    }
+    .hotspot-senadores-2{
+        left: 45%;
+        top: 8%;        
+    }
+    .hotspot-senadores-3{
+        right: 26%;
+        top: 12.5%;        
+    }
+    .hotspot-senadores-4{
+        right: 9.5%;
+        top: 38.5%;       
+    }
+    .hotspot-senadores-5{
+        bottom: 10.5%;   
+        right: 2.5%;         
+    }
+    .hotspot-senadores-6{
+        bottom: -5%;
+        right: 2.5%;      
+    }
+    .hotspot-senadores-regiones-1{
+        bottom: 9%;
+        left: 3%;
+    }
 .hem-hotspot{
     position: absolute;
     width: 44px;
