@@ -440,18 +440,32 @@ function setHemImageTab(btn) {
 }
 
 // Click/tap en hotspot → toggle tooltip (para móvil)
+function clampTooltip(hs) {
+    const tip = hs.querySelector('.hem-tooltip');
+    if (!tip) return;
+    tip.style.left = '';
+    requestAnimationFrame(() => {
+        const r = tip.getBoundingClientRect();
+        const pad = 8;
+        if (r.left < pad) {
+            tip.style.left = `calc(50% + ${pad - r.left}px)`;
+        } else if (r.right > window.innerWidth - pad) {
+            tip.style.left = `calc(50% - ${r.right - (window.innerWidth - pad)}px)`;
+        }
+    });
+}
+
 document.addEventListener('click', function(e) {
   const hs = e.target.closest('.hem-hotspot');
   if (hs) {
-    // Cerrar otros hotspots abiertos en el mismo bloque
     hs.closest('.hem-img-wrap').querySelectorAll('.hem-hotspot.is-open').forEach(h => {
       if (h !== hs) h.classList.remove('is-open');
     });
     hs.classList.toggle('is-open');
+    if (hs.classList.contains('is-open')) clampTooltip(hs);
     e.stopPropagation();
     return;
   }
-  // Click fuera → cerrar todos
   document.querySelectorAll('.hem-hotspot.is-open').forEach(h => h.classList.remove('is-open'));
 });
 

@@ -1226,10 +1226,70 @@ span.separador-logo {
         padding: 70px 15px;
     }
 
+    #funciones{
+        padding: 0 25px 50px;
+    }
+    #funciones .funciones-body{
+        margin-top: 0;
+    }
+    .hem-image-block{
+        max-width: 320px;
+    }
+    .hotspot-1{
+        bottom: 10%;
+        left: 5%;
+    }
+    .hotspot-4{
+        right: 6.5%;
+        top: 24%;
+    }
+    .hotspot-5{
+        right: -3.5%;
+        top: 50%;
+    }
+    .hotspot-6{
+        bottom: -12%;
+        right: -7.5%;
+    }
+    .hotspot-senadores-1{
+        bottom: -7%;
+        left: 8%;
+    }
+    .hotspot-senadores-3{
+        right: 17%;
+        top: 12.5%;
+    }
+    .hotspot-senadores-4{
+        right: 0.5%;
+        top: 38.5%;
+    }
+    .hotspot-senadores-5{
+        bottom: 4.5%;
+        height: 30px;
+        right: -1.5%;
+        width: 30px;
+    }
+    .hotspot-senadores-6{   
+        bottom: -15%;
+        height: 30px;
+        right: -1.5%;
+        width: 30px;
+    }
+    .hotspot-senadores-regiones-1{
+        bottom: -7%;
+        left: 4%;
+    }
+
+    .hem-toggle-opt--b{
+        text-align: left;
+    }
+
 }
 
 /* ── FUNCIONES ──────────────────────────── */
-#funciones { background: #fff; }
+#funciones { 
+    background: #fff;    
+}
 .funciones-body {
     display: flex;
     align-items: flex-start;
@@ -1342,7 +1402,7 @@ span.separador-logo {
 @media (max-width: 600px) {
   .pa-avatars { gap: 12px; }
   .pa-avatar-ring { width: 60px; height: 60px; }
-  .pa-avatar-card { width: 68px; }
+  .pa-avatar-card { width: 40%; }
 }
 .indicacion img{
     display: inline-block;
