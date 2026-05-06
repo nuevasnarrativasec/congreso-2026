@@ -669,9 +669,177 @@ function onBuscadorInput(val) {
   renderBancadas();
 }
 
+// ── PARLAMENTO ANDINO ──────────────────────────────
+let paMiembros = [];
+
+function initParlamentoAndino() {
+    paMiembros = candidatos.filter(c => c.tipoCandidatura === 'parlamento_andino');
+    const el = document.getElementById('pa-avatars');
+    if (!el || paMiembros.length === 0) return;
+    el.innerHTML = paMiembros.map((c, i) => {
+        const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
+        const meta = PARTIDOS[c.partido] || {};
+        return `<div class="pa-avatar-card${i === 0 ? ' active' : ''}" onclick="showPaCV(${i},this)">
+            <div class="pa-avatar-ring">
+                <img src="${foto}" alt="${c.nombre}" class="pa-avatar-img" onerror="this.src='./img/fotos-candidatos/avatar-candidato.png'">
+            </div>
+            ${meta.logo ? `<img src="${meta.logo}" alt="${c.partido}" class="pa-partido-logo">` : ''}
+            <div class="pa-nombre">${c.nombre}</div>
+            ${c.edad ? `<div class="pa-edad">${c.edad} años</div>` : ''}
+        </div>`;
+    }).join('');
+    showPaCV(0, el.querySelector('.pa-avatar-card'));
+}
+
+function showPaCV(idx, el) {
+    const c = paMiembros[idx];
+    if (!c) return;
+    document.querySelectorAll('.pa-avatar-card').forEach(x => x.classList.remove('active'));
+    el.classList.add('active');
+    const panel = document.getElementById('pa-panel');
+    const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
+    const region = c.departamento || c.circunscripcion || '';
+    panel.innerHTML = `
+    <div class="ficha-wrap">
+      <div class="ficha-header-card">
+        <div class="ficha-header-inner">
+          <div class="ficha-header-left">
+            <div class="ficha-nombre">${c.nombre}</div>
+            ${c.edad ? `<div class="ficha-edad">${c.edad} años</div>` : ''}
+            ${region ? `<div class="ficha-region">Región: ${region}</div>` : ''}
+          </div>
+          <div class="ficha-avatar-wrap">
+            <img src="${foto}" alt="${c.nombre}" class="ficha-avatar-img" onerror="this.src='./img/fotos-candidatos/avatar-candidato.png'">
+          </div>
+        </div>
+      </div>
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Cuál es su perfil profesional?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-3">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Profesión declarada</div>
+            <div class="ficha-field-value">${c.profesion || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Formación más alta alcanzada</div>
+            <div class="ficha-field-value">${c.formacion || c.educacionGrupo || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Campo principal de especialización</div>
+            <div class="ficha-field-value">${c.especializacion || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Qué experiencia tiene en el Estado o en funciones de poder?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-3">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Experiencia en el sector público</div>
+            <div class="ficha-field-value">${c.expPublica || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Rol más relevante declarado</div>
+            <div class="ficha-field-value">${c.experienciaLaboral || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Experiencia internacional</div>
+            <div class="ficha-field-value">${c.expInternacional || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="ficha-row-2">
+        <div class="ficha-card">
+          <div class="ficha-card-title">¿Ha tenido trayectoria política previa?</div>
+          <hr class="ficha-divider">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Cargos de elección popular</div>
+            <div class="ficha-field-value">${c.cargosEleccion || 'No registra'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Cargos políticos o partidarios</div>
+            <div class="ficha-field-value">${c.cargosPartidarios || 'No registra'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Continuidad política</div>
+            <div class="ficha-field-value">${c.continuidad || 'No declara'}</div>
+          </div>
+        </div>
+        <div class="ficha-card">
+          <div class="ficha-card-title">¿Registra sentencias o procesos judiciales?</div>
+          <hr class="ficha-divider">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Sentencias judiciales declaradas</div>
+            <div class="ficha-field-value ${c.delitos ? 'ficha-alerta' : ''}">${c.sentencias || 'No registra sentencias'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Demandas fundadas en su contra</div>
+            <div class="ficha-field-value">${c.demandas || 'No registra'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="ficha-card ficha-card-ingresos">
+        <div class="ficha-card-title">¿Cuánto dinero declara haber ganado?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-2">
+          <div class="ficha-ingresos-amount">
+            <div class="ficha-field-label">Ingresos anuales declarados (último año)</div>
+            <div class="ficha-big-amount">${c.ingresos || 'No declara'}</div>
+          </div>
+          <div class="ficha-ingresos-origen">
+            <div class="ficha-field-label">Origen principal de los ingresos</div>
+            <div class="ficha-field-value">${c.origenIngresos || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="ficha-card">
+        <div class="ficha-card-title">¿Qué patrimonio declara?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-cols-2">
+          <div class="ficha-field">
+            <div class="ficha-field-label">Bienes inmuebles</div>
+            <div class="ficha-field-value">${c.inmuebles || 'No declara'}</div>
+          </div>
+          <div class="ficha-field">
+            <div class="ficha-field-label">Bienes muebles (vehículos u otros)</div>
+            <div class="ficha-field-value">${c.muebles || 'No declara'}</div>
+          </div>
+        </div>
+      </div>
+      ${c.bio ? `
+      <div class="ficha-card ficha-card-bio">
+        <div class="ficha-bio-title">¿Qué nos dice su hoja de vida en conjunto?</div>
+        <div class="ficha-bio-text">${c.bio}</div>
+      </div>` : ''}
+      <div class="ficha-card ficha-card-source">
+        <div class="ficha-card-title">¿De dónde sale esta información?</div>
+        <hr class="ficha-divider">
+        <div class="ficha-source-text">
+          <strong>Fuente:</strong><br>
+          Declaración Jurada de Hoja de Vida presentada ante el Jurado Nacional de Elecciones (JNE).
+        </div>
+      </div>
+      <div class="ficha-pdf-row">
+        <span class="ficha-pdf-label">Transparencia:</span>
+        ${c.pdfLink
+          ? `<a class="ficha-pdf-btn" href="${c.pdfLink}" target="_blank" rel="noopener">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+               Descargar hoja de vida original en PDF
+             </a>`
+          : `<span class="ficha-pdf-btn ficha-pdf-disabled">
+               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+               Descargar hoja de vida original en PDF
+             </span>`
+        }
+      </div>
+    </div>`;
+}
+
 // ── INIT ──────────────────────────────────────
 (function init() {
   renderBancadas();
   initMapa();
   initPxStories();
+  initParlamentoAndino();
 })();
