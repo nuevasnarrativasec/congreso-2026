@@ -62,7 +62,7 @@ const REGION_MAP = {
 
 // ── STATE ─────────────────────────────────────
 let filtroGlobal = 'diputado';
-let mapaFiltro = 'diputado';
+let mapaFiltro = 'senador';
 let hemTab = 'nacional';
 let openBancada = null;
 let selectedRegion = null;
@@ -456,6 +456,15 @@ document.addEventListener('click', function(e) {
 });
 
 // ── MAPA ──────────────────────────────────────
+function onMapaToggle(input) {
+    const idx = input.checked ? 1 : 0;
+    document.querySelectorAll('.mapa-toggle-opt').forEach((opt, i) => {
+        opt.classList.toggle('active', i === idx);
+    });
+    const btns = [...document.querySelectorAll('.mapa-filter-btn')];
+    if (btns[idx]) btns[idx].click();
+}
+
 function setMapaFiltro(tipo, btn) {
     mapaFiltro = tipo;
     document.querySelectorAll('.mapa-filter-btn').forEach(b=>b.classList.remove('active'));
