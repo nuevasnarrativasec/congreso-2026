@@ -158,7 +158,6 @@ function showCV(idx, el) {
     if (!c) return;
     document.querySelectorAll('.panel-list-item').forEach(x => x.classList.remove('active'));
     el.classList.add('active');
-    const meta = PARTIDOS[c.partido] || { sigla: '?', color: '#888', bg: '#eee' };
     const cv = document.getElementById('panel-cv');
 
     const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
@@ -331,7 +330,6 @@ function showCV(idx, el) {
 function buildHemSVG(data, totalSeats) {
   const W=340, H=180, cx=W/2, cy=H, R=148, r=116;
   const entries = Object.entries(data);
-  const totalData = entries.reduce((a,[,v])=>a+v,0);
   let dots=[];
   let rows=4;
   // place dots in arc rows
@@ -392,6 +390,17 @@ function buildHemiciclo(containerId, tipo, nivel) {
     </div>
     <div class="hem-logos-col right">${rightHTML}</div>
   `;
+}
+
+// ── HEM TOGGLE ────────────────────────────────
+function onHemToggle(input) {
+  const block = input.closest('.hem-image-block');
+  const idx = input.checked ? 1 : 0;
+  block.querySelectorAll('.hem-toggle-opt').forEach((opt, i) => {
+    opt.classList.toggle('active', i === idx);
+  });
+  const tabs = [...block.querySelectorAll('.hem-tab')];
+  if (tabs[idx]) setHemImageTab(tabs[idx]);
 }
 
 // ── HEM-IMAGE-BLOCK: función genérica reutilizable ──────────────────────────
@@ -588,7 +597,6 @@ function initPxStories() {
   const bgEls    = Array.from(document.querySelectorAll('.px-bg'));
   const scenes   = Array.from(document.querySelectorAll('.px-scene'));
   const cardEls  = Array.from(document.querySelectorAll('.px-card'));
-  const N        = scenes.length;   // 5
   const VH       = () => window.innerHeight;
 
   function onScroll() {
