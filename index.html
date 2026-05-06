@@ -100,6 +100,12 @@
         <button class="hf-btn active" onclick="setFiltroGlobal('diputado',this)">Diputados</button>
         <button class="hf-btn" onclick="setFiltroGlobal('senador',this)">Senadores</button>
         </div>
+        <div class="hero-search">
+          <input type="text" id="buscador-input" class="hero-search-input" placeholder="Nombre o partido" oninput="onBuscadorInput(this.value)">
+          <svg class="hero-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
     </div>
     </section>
 
@@ -116,6 +122,49 @@
     </div>
     </section>
 
+    <!-- ══ FUNCIONES ═══════════════════════════════ -->
+    <section id="funciones">
+      <div class="max-w">
+        <h2 class="sec-title">¿Qué funciones tendrán cada uno?</h2>
+        <div class="funciones-body">
+
+          <div class="func-col func-col--dip">
+            <div class="func-ilus-wrap">
+              <img class="func-ilus-img" src="./img/ilustracion-diputada.png" alt="Diputada en estrado">
+            </div>
+            <div class="func-label func-label--dip">Cámara de Diputados <br>(130 integrantes)</div>
+            <ul class="func-lista">
+                <li><strong>Aprobación legislativa:</strong> Aprueba proyectos de ley en primera instancia para su posterior remisión al Senado.</li>
+                <li><strong>Control político del Ejecutivo:</strong> Mantiene la facultad exclusiva de interpelar, censurar ministros y resolver las cuestiones de confianza.</li>
+                <li><strong>Fiscalización:</strong> Conforma comisiones investigadoras sobre asuntos de interés público.</li>
+                <li>
+                    <strong>Antejuicio político:</strong> Ejerce el rol de cámara acusadora contra altos funcionarios ante el Senado por delitos o infracciones constitucionales.
+                </li>
+            </ul>
+          </div>
+
+          <p class="func-sep-text">
+            Este diseño bicameral busca garantizar mayor deliberación, control cruzado y contrapeso político en las decisiones del Parlamento
+          </p>
+
+          <div class="func-col func-col--sen">
+            <div class="func-ilus-wrap">
+              <img class="func-ilus-img" src="./img/ilustracion-senador.png" alt="Senador en estrado">
+            </div>
+            <div class="func-label func-label--sen">Senado <br>(60 integrantes - Órgano indisoluble)</div>
+            <ul class="func-lista">
+              <li><strong>Revisión legislativa:</strong> Actúa como cámara revisora con potestad para aprobar, modificar o rechazar los textos de los diputados.</li>
+              <li><strong>Designación de altas autoridades:</strong> Elige y ratifica a los titulares del Tribunal Constitucional, Defensoría del Pueblo, Contraloría, BCR y SBS.</li>
+              <li><strong>Sanción constitucional:</strong> Resuelve las acusaciones formuladas por los diputados, decidiendo la suspensión, destitución o inhabilitación de funcionarios.</li>
+              <li><strong>Política exterior y defensa:</strong> Aprueba tratados internacionales, autoriza viajes presidenciales y consiente el ingreso de tropas extranjeras.</li>
+              <li><strong>Control normativo:</strong> Revisa la constitucionalidad de decretos de urgencia, legislativos y de regímenes de excepción.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ══ HEMICICLOS ════════════════════════════ -->
     <section id="hemiciclos">
         <div class="max-w">
@@ -127,7 +176,7 @@
                  data-tab-a-img="./img/imagen-hemiciclo-1.png"
                  data-tab-b-label="Nivel regional"
                  data-tab-b-img="./img/imagen-hemiciclo-2.png">
-                <div class="hem-tabs">
+                <div class="hem-tabs" style="display: none;">
                     <button class="hem-tab active" onclick="setHemImageTab(this)">Nivel nacional <i></i></button>
                     <div class="separador"></div>
                     <button class="hem-tab"         onclick="setHemImageTab(this)">Nivel regional <i></i></button>
@@ -136,14 +185,34 @@
                     <img class="hem-img" src="./img/imagen-hemiciclo-1.png" alt="Hemiciclo nivel nacional">
                     <!-- Hotspots Tab A – Nivel nacional -->
                     <div class="hem-hotspots hem-hotspots--a">
-                        <div class="hem-hotspot" style="left:3%;bottom:11%">
+                        <div class="hem-hotspot hotspot-1">
                             <span class="hem-tooltip">
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit tincidunt lacus, magna mauris sociis augue non mi senectus dictum, in ridiculus rutrum vitae varius eleifend
+                                Información de Fuerza Popular
                             </span>
                         </div>
-                        <div class="hem-hotspot" style="left:31%;top:8%">
+                        <div class="hem-hotspot hotspot-2">
                             <span class="hem-tooltip">
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit tincidunt lacus, magna mauris sociis augue non mi senectus dictum, in ridiculus rutrum vitae varius eleifend
+                                Información de Juntos por el Perú
+                            </span>
+                        </div>
+                        <div class="hem-hotspot hotspot-3">
+                            <span class="hem-tooltip">
+                                Información de Partido del Buen Gobierno
+                            </span>
+                        </div>
+                        <div class="hem-hotspot hotspot-4">
+                            <span class="hem-tooltip">
+                                Información de Renovación Popular
+                            </span>
+                        </div>
+                        <div class="hem-hotspot hotspot-5">
+                            <span class="hem-tooltip">
+                                Información de OBRAS
+                            </span>
+                        </div>
+                        <div class="hem-hotspot hotspot-6">
+                            <span class="hem-tooltip">
+                                Información de Ahora Nación
                             </span>
                         </div>
                     </div>

@@ -66,20 +66,30 @@ let mapaFiltro = 'diputado';
 let hemTab = 'nacional';
 let openBancada = null;
 let selectedRegion = null;
+let searchDiputado = '';
+let searchSenador  = '';
 
 // ── HELPERS ───────────────────────────────────
 function initiales(nombre) {
   return (nombre||'').trim().split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
 }
 
+
 // ── BANCADAS ──────────────────────────────────
 function renderBancadas() {
     const grid = document.getElementById('bancadas-grid');
     const tipo = filtroGlobal;
+    const q = (filtroGlobal === 'diputado' ? searchDiputado : searchSenador).trim().toLowerCase()
+        .replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
     // Group by partido
     const grupos = {};
     candidatos.forEach(c => {
         if(c.tipoCandidatura !== tipo) return;
+        if(q) {
+            const nombre  = (c.nombre||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
+            const partido = (c.partido||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
+            if(!nombre.includes(q) && !partido.includes(q)) return;
+        }
         grupos[c.partido] = grupos[c.partido]||[];
         grupos[c.partido].push(c);
     });
@@ -631,6 +641,14 @@ function setFiltroGlobal(tipo, btn) {
   filtroGlobal = tipo;
   document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  const input = document.getElementById('buscador-input');
+  if (input) input.value = tipo === 'diputado' ? searchDiputado : searchSenador;
+  renderBancadas();
+}
+
+function onBuscadorInput(val) {
+  if (filtroGlobal === 'diputado') searchDiputado = val;
+  else searchSenador = val;
   renderBancadas();
 }
 
