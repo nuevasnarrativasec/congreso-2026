@@ -316,15 +316,17 @@
         <div class="mapa-filters">
             <span class="mapa-toggle-label">Selecciona una cámara</span>
             <div class="mapa-toggle-row">
-                <span class="mapa-toggle-opt mapa-toggle-opt--sen active">Senadores</span>
+                <span class="mapa-toggle-opt mapa-toggle-opt--dip active">Diputados</span>
+                
                 <label class="mapa-toggle-switch">
                     <input type="checkbox" onchange="onMapaToggle(this)">
                     <span class="mapa-toggle-slider"></span>
                 </label>
-                <span class="mapa-toggle-opt mapa-toggle-opt--dip">Diputados</span>
+                <span class="mapa-toggle-opt mapa-toggle-opt--sen">Senadores</span>
             </div>
-            <button class="mapa-filter-btn active" style="display:none" onclick="setMapaFiltro('senador',this)"></button>
             <button class="mapa-filter-btn" style="display:none" onclick="setMapaFiltro('diputado',this)"></button>
+            <button class="mapa-filter-btn active" style="display:none" onclick="setMapaFiltro('senador',this)"></button>
+            
         </div>
         <span class="indicacion">Selecciona una región</span>
         <div class="mapa-container">
