@@ -1,6 +1,6 @@
 // ── LOGOTIPOS DE PARTIDOS Y NÚMERO DE SENADORES Y DIPUTADOS EN EL HEMICICLO ────────────────────────────────
 const PARTIDOS = {
-    'AHORA NACION':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/ahora-nacion.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },    
+    'AHORA NACION - AN':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/ahora-nacion.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },    
     'ALIANZA PARA EL PROGRESO':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-para-el-progreso.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'ALIANZA UNIDAD NACIONAL':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-unidad-nacional.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'AVANZA PAÍS':   { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/avanza-pais.jpg',  color:'#c0392b', bg:'#fde8e8', total:{sen:8, dip:22} },
@@ -12,9 +12,9 @@ const PARTIDOS = {
     'FUERZA POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/fuerza-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FUERZA Y LIBERTAD':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-fuerza-y-libertad.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'INTEGRIDAD DEMOCRÁTICA':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/integridad-democratica.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
-    'JUNTOS POR EL PERÚ':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/juntos-por-el-peru.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
+    'JUNTOS POR EL PERU':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/juntos-por-el-peru.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'LIBERTAD POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/libertad-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
-    'OBRAS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/obras.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
+    'PARTIDO CIVICO OBRAS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/obras.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PAÍS PARA TODOS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/pais-para-todos.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PARTIDO DEMOCRÁTICO FEDERAL': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/peru-federal.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PARTIDO DEL BUEN GOBIERNO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/partido-del-buen-gobierno.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
@@ -26,7 +26,7 @@ const PARTIDOS = {
     'PRIMERO LA GENTE': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/primero-la-gente.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PODEMOS PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/podemos-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PROGRESEMOS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/progresemos.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
-    'RENOVACIÓN POPULAR': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/renovacion-popular.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
+    'RENOVACION POPULAR': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/renovacion-popular.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SALVEMOS AL PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/salvemos-al-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SÍ CREO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/si-creo.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SOMOS PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/somos-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
@@ -94,7 +94,7 @@ function renderBancadas() {
         grupos[c.partido].push(c);
     });
     grid.innerHTML = '';
-    Object.entries(grupos).forEach(([partido, miembros]) => {
+    Object.entries(grupos).sort((a, b) => b[1].length - a[1].length).forEach(([partido, miembros]) => {
         const meta = PARTIDOS[partido]||{sigla:partido.slice(0,3), color:'#888', bg:'#eee'};
         const card = document.createElement('div');
         card.className = 'bancada-card';
