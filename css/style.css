@@ -1292,6 +1292,11 @@ span.separador-logo {
         text-align: left;
     }
 
+    .ficha-pdf-btn{
+      max-width: 100%;
+    }
+
+
 }
 
 /* ── FUNCIONES ──────────────────────────── */
