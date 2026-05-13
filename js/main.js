@@ -51,7 +51,7 @@ const HEM = {
 const REGION_MAP = {
   'PE-AMA':'Amazonas','PE-ANC':'Ancash','PE-APU':'Apurímac',
   'PE-ARE':'Arequipa','PE-AYA':'Ayacucho','PE-CAJ':'Cajamarca',
-  'PE-CAL':'El Callao','PE-CUS':'Cusco','PE-HUC':'Huánuco',
+  'PE-CAL':'Callao','PE-CUS':'Cusco','PE-HUC':'Huánuco',
   'PE-HUV':'Huancavelica','PE-ICA':'Ica','PE-JUN':'Junín',
   'PE-LAL':'La Libertad','PE-LAM':'Lambayeque','PE-LIM':'Lima',
   'PE-LMA':'Lima Metropolitana','PE-LOR':'Loreto','PE-MDD':'Madre de Dios',
@@ -62,7 +62,7 @@ const REGION_MAP = {
 
 // ── STATE ─────────────────────────────────────
 let filtroGlobal = 'diputado';
-let mapaFiltro = 'senador';
+let mapaFiltro = 'diputado';
 let hemTab = 'nacional';
 let openBancada = null;
 let selectedRegion = null;
@@ -132,7 +132,7 @@ function openBancadaPanel(partido, miembros, cardEl) {
     list.innerHTML = miembros.map((c,i)=>`
         <div class="panel-list-item" onclick="showCV(${i},this)" data-idx="${i}">
             <div class="pi-avatar" style="color:${meta.color}"><img src="${meta.logo}"></div>
-            <div class="pi-name">${c.nombre}<br><span style="color: #000;font-size:.72rem">${c.departamento||c.circunscripcion||''}</span></div>
+            <div class="pi-name">${c.nombre}<br><span style="color: #000;font-size:.72rem">${c.circunscripcion||''}</span></div>
             ${c.delitos?'<span class="pi-badge tag-alerta">⚠</span>':''}
         </div>
     `).join('');
@@ -489,10 +489,14 @@ function showMapaResults(regionId) {
     const lista = document.getElementById('mapa-list');
     // normalize for matching
     const norm = s=>(s||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
-    const filtered = candidatos.filter(c=>
-        c.tipoCandidatura === mapaFiltro &&
-        norm(c.departamento||c.circunscripcion||'').includes(norm(regionName))
-    );
+    const normRegion = norm(regionName);
+    const isLimaMetro = normRegion === 'lima metropolitana';
+    const filtered = candidatos.filter(c=>{
+        if(c.tipoCandidatura !== mapaFiltro) return false;
+        const circ = norm(c.circunscripcion||'');
+        if(circ === 'unico nacional') return isLimaMetro;
+        return circ.includes(normRegion);
+    });
     const regionHeader = `<div class="mapa-region-header">
         <span class="region-name-badge">${regionName}</span>
         <span class="mapa-region-count">( ${filtered.length}${filtered.length!==1? ' )': ' )'}</span>
@@ -526,6 +530,10 @@ function initMapa() {
       this.setAttribute('data-title', this.getAttribute('title'));
     });
   });
+  // Select Lima Metropolitana by default
+  const limaPath = document.querySelector('#peru-svg .rpath#PE-LMA');
+  if(limaPath) limaPath.classList.add('selected');
+  showMapaResults('PE-LMA');
 }
 
 // ── PARALLAX STORIES ──────────────────────────

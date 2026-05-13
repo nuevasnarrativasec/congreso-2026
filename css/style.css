@@ -911,6 +911,7 @@ footer a:hover{text-decoration:underline}
   color: #1a1a1a;
   line-height: 1.15;
   margin-bottom: 10px;
+  max-width: 230px;
 }
 .ficha-meta-row {
   font-size: .82rem;
@@ -976,7 +977,7 @@ footer a:hover{text-decoration:underline}
   color: #1a1a1a;
   line-height: 1.35;
 }
-.ficha-alerta { color: #c0392b; }
+.ficha-alerta { /*color: #c0392b;*/ }
 
 /* ── Grid layouts ─── */
 .ficha-cols-3 {
