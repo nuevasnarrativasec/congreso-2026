@@ -9,15 +9,15 @@ const PARTIDOS = {
     'FE EN EL PERÚ':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/fe-en-el-peru.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FRENTE DE LA ESPERANZA':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/frente-esperanza.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FRENTE POPULAR AGRÍCOLA FIA DEL PERÚ':  { logo:'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/frepap.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
-    'FUERZA POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/fuerza-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
+    'FUERZA POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/fuerza-popular.jpg',  color:'#ff6b02', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'FUERZA Y LIBERTAD':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/alianza-fuerza-y-libertad.jpg',  color:'#e67e22', bg:'#fef5e8', total:{sen:22,dip:36} },
     'INTEGRIDAD DEMOCRÁTICA':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/integridad-democratica.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
-    'JUNTOS POR EL PERU':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/juntos-por-el-peru.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
+    'JUNTOS POR EL PERU':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/juntos-por-el-peru.jpg',  color:'#60b123', bg:'#e8f4fd', total:{sen:18,dip:42} },
     'LIBERTAD POPULAR':  { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/libertad-popular.jpg',  color:'#2980b9', bg:'#e8f4fd', total:{sen:18,dip:42} },
-    'PARTIDO CIVICO OBRAS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/obras.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
+    'PARTIDO CIVICO OBRAS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/obras.jpg', color:'#015700', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PAÍS PARA TODOS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/pais-para-todos.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PARTIDO DEMOCRÁTICO FEDERAL': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/peru-federal.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
-    'PARTIDO DEL BUEN GOBIERNO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/partido-del-buen-gobierno.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
+    'PARTIDO DEL BUEN GOBIERNO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/partido-del-buen-gobierno.jpg', color:'#c4b90c', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PARTIDO MORADO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/partido-morado.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PARTIDO PATRIÓTICO DEL PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/partido-patriotico-del-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },  
     'PERÚ LIBRE': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/peru-libre.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
@@ -26,7 +26,7 @@ const PARTIDOS = {
     'PRIMERO LA GENTE': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/primero-la-gente.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PODEMOS PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/podemos-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'PROGRESEMOS': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/progresemos.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
-    'RENOVACION POPULAR': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/renovacion-popular.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
+    'RENOVACION POPULAR': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/renovacion-popular.jpg', color:'#019ddc', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SALVEMOS AL PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/salvemos-al-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SÍ CREO': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/si-creo.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
     'SOMOS PERÚ': { logo:'https://nuevasnarrativasec.github.io/candidatos-2026/img/logos/somos-peru.jpg', color:'#27ae60', bg:'#e8f8ef', total:{sen:12,dip:30} },
@@ -98,8 +98,8 @@ function renderBancadas() {
         const meta = PARTIDOS[partido]||{sigla:partido.slice(0,3), color:'#888', bg:'#eee'};
         const card = document.createElement('div');
         card.className = 'bancada-card';
-        //card.style.borderTopColor = meta.color;
-        card.style.borderTopWidth = '1px';
+        card.style.borderColor = meta.color;
+        card.style.borderWidth = '2px';
         card.innerHTML = `
         <div class="bc-sigla"><img src="${meta.logo}"></div>        
         <div class="bc-total">${miembros.length}</div>
@@ -161,7 +161,7 @@ function showCV(idx, el) {
     const cv = document.getElementById('panel-cv');
 
     const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
-    const region = c.departamento || c.circunscripcion || '';
+    const partidoColor = (PARTIDOS[c.partido] || {}).color || '#ED6A08';
 
     cv.innerHTML = `
     <div class="ficha-wrap">
@@ -176,10 +176,11 @@ function showCV(idx, el) {
         <div class="ficha-header-inner">
           <div class="ficha-header-left">
             <div class="ficha-nombre">${c.nombre}</div>
-            ${c.edad ? `<div class="ficha-edad">${c.edad} años</div>` : ''}
-            ${region ? `<div class="ficha-region">Región: ${region}</div>` : ''}
+            ${c.edad ? `<div class="ficha-meta-row"><span class="ficha-meta-lbl">Edad:</span> ${c.edad} años</div>` : ''}
+            ${c.departamento ? `<div class="ficha-meta-row"><span class="ficha-meta-lbl">Lugar de nacimiento:</span> ${c.departamento}</div>` : ''}
+            ${c.circunscripcion ? `<div class="ficha-meta-row"><span class="ficha-meta-lbl">Circunscripción:</span> ${c.circunscripcion}</div>` : ''}
           </div>
-          <div class="ficha-avatar-wrap">
+          <div class="ficha-avatar-wrap" style="border-color:${partidoColor}">
             <img src="${foto}" alt="${c.nombre}" class="ficha-avatar-img" onerror="this.src='./img/fotos-candidatos/avatar-candidato.png'">
           </div>
         </div>
@@ -297,29 +298,25 @@ function showCV(idx, el) {
         <div class="ficha-bio-text">${c.bio}</div>
       </div>` : ''}
 
-      <!-- Fuente -->
+      <!-- Fuente + Descarga PDF -->
       <div class="ficha-card ficha-card-source">
-        <div class="ficha-card-title">¿De dónde sale esta información?</div>
-        <hr class="ficha-divider">
-        <div class="ficha-source-text">
-          <strong>Fuente:</strong><br>
-          Declaración Jurada de Hoja de Vida presentada ante el Jurado Nacional de Elecciones (JNE).
+        <div class="ficha-bio-title">¿De dónde sale esta información?</div>
+        <div class="ficha-source-pdf-row">
+          <div class="ficha-source-text">
+            <strong>Fuente:</strong><br>
+            Declaración Jurada de Hoja de Vida presentada ante el Jurado Nacional de Elecciones (JNE).
+          </div>
+          ${c.pdfLink
+            ? `<a class="ficha-pdf-btn" href="${c.pdfLink}" target="_blank" rel="noopener">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+                 Descargar hoja de vida original en PDF
+               </a>`
+            : `<span class="ficha-pdf-btn ficha-pdf-disabled">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+                 Descargar hoja de vida original en PDF
+               </span>`
+          }
         </div>
-      </div>
-
-      <!-- Descarga PDF -->
-      <div class="ficha-pdf-row">
-        <span class="ficha-pdf-label">Transparencia:</span>
-        ${c.pdfLink
-          ? `<a class="ficha-pdf-btn" href="${c.pdfLink}" target="_blank" rel="noopener">
-               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-               Descargar hoja de vida original en PDF
-             </a>`
-          : `<span class="ficha-pdf-btn ficha-pdf-disabled">
-               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-               Descargar hoja de vida original en PDF
-             </span>`
-        }
       </div>
 
     </div>
