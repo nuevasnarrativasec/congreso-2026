@@ -303,8 +303,8 @@ function showCV(idx, el) {
         <div class="ficha-bio-title">¿De dónde sale esta información?</div>
         <div class="ficha-source-pdf-row">
           <div class="ficha-source-text">
-            <strong>Fuente:</strong><br>
-            Declaración Jurada de Hoja de Vida presentada ante el Jurado Nacional de Elecciones (JNE).
+            <strong>Fuentes y alcance:</strong><br>
+            Los datos provienen de las hojas de vida presentadas ante el JNE por los candidatos que obtuvieron una curul en las Elecciones 2026. Al tratarse de información declarada por cada postulante, pueden existir omisiones, imprecisiones o diferencias en los criterios de registro.
           </div>
           ${c.pdfLink
             ? `<a class="ficha-pdf-btn" href="${c.pdfLink}" target="_blank" rel="noopener">
