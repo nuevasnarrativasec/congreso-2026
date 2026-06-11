@@ -6894,7 +6894,7 @@ const candidatos = [
   },
   {
     nombre: "Oswar Elbis Cahuaza Mitivire",
-    fotoCandidato: "",
+    fotoCandidato: "../img/fotos-candidatos/diputados/juntos-por-el-peru/oswar-cahuaza-mitivire.jpg",
     genero: "M",
     edad: 51,
     partido: "JUNTOS POR EL PERU",
@@ -7017,7 +7017,7 @@ const candidatos = [
   },
   {
     nombre: "Azucena Isla Rojas",
-    fotoCandidato: "",
+    fotoCandidato: "../img/fotos-candidatos/diputados/juntos-por-el-peru/azucena-isla-rojas.jpg",
     genero: "F",
     edad: 61,
     partido: "JUNTOS POR EL PERU",
@@ -7468,7 +7468,7 @@ const candidatos = [
   },
   {
     nombre: "Juan Amilcar Villanueva Calderón",
-    fotoCandidato: "",
+    fotoCandidato: "../img/fotos-candidatos/diputados/juntos-por-el-peru/juan-villanueva-calderon.jpg",
     genero: "M",
     edad: 46,
     partido: "JUNTOS POR EL PERU",
@@ -7591,7 +7591,7 @@ const candidatos = [
   },
   {
     nombre: "Daniel Jefferson Varas Seguin",
-    fotoCandidato: "",
+    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/daniel-jefferson-varas-seguin.jpg",
     genero: "M",
     edad: 40,
     partido: "JUNTOS POR EL PERU",
@@ -7632,7 +7632,7 @@ const candidatos = [
   },
   {
     nombre: "Luis Angel Jibaja Ramos",
-    fotoCandidato: "",
+    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/luis-angel-jibaja-ramos.jpg",
     genero: "M",
     edad: 39,
     partido: "JUNTOS POR EL PERU",
@@ -7673,7 +7673,7 @@ const candidatos = [
   },
   {
     nombre: "Jessica Roxana Guevara Ramirez",
-    fotoCandidato: "",
+    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/jessica-roxana-guevara-ramirez.jpg",
     genero: "F",
     edad: 37,
     partido: "JUNTOS POR EL PERU",
