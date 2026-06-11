@@ -539,6 +539,45 @@ function initMapa() {
 // ── PARALLAX STORIES ──────────────────────────
 let pxFiltroActual = 'diputado';
 
+const PX_CARD_CONTENT = {
+  diputado: [
+    {
+      unit: 'Lejos de la paridad',
+      desc: 'De los 130 diputados electos, <span class="cian">54 son mujeres (42%)</span> y <span class="verde">76 hombres (58%)</span>.'
+    },
+    {
+      unit: 'Generación X al mando',
+      desc: 'Los diputados electos tienen una edad promedio de 49 años. <span class="negro">El menor registra</span> <span class="cian">29 años</span> <span class="negro">y el mayor</span> <span class="verde">77 años</span>.'
+    },
+    {
+      unit: 'Predominan los estudios de posgrado',
+      desc: 'Según sus hojas de vida, <span class="cian">33 diputados</span> electos cuentan con <span class="cian">grado de magíster</span> <span class="verde">y 3 con doctorado</span>.'
+    },
+    {
+      unit: 'Antecedentes judiciales presentes.',
+      desc: '<span class="cian">8 diputados electos declaran sentencias</span> penales y <span class="verde">9 sentencias no penales</span> en sus hojas de vida.'
+    }
+  ],
+  senador: [
+    {
+      unit: 'Sin paridad',
+      desc: 'De los 60 senadores electos, <span class="cian">16 son mujeres (27%)</span> y <span class="verde">44 hombres (73%)</span>.'
+    },
+    {
+      unit: 'Baby Boomers al mando',
+      desc: 'La edad promedio de los senadores electos es de 61 años. El menor registra <span class="cian">39 años</span> y el mayor <span class="verde">79 años</span>.'
+    },
+    {
+      unit: 'Posgrado presente',
+      desc: 'Según sus hojas de vida, <span class="cian">21 senadores</span> electos cuentan con <span class="cian">grado de magíster</span> <span class="verde">y 5 con doctorado</span>.'
+    },
+    {
+      unit: 'Sentencias declaradas',
+      desc: '<span class="cian">4 senadores electos</span>  declaran sentencias penales y <span class="verde">6 sentencias no penales</span> en sus hojas de vida.'
+    }
+  ]
+};
+
 function setPxFiltro(tipo, btn) {
   pxFiltroActual = tipo;
   // Update button styles
@@ -569,6 +608,18 @@ function setPxFiltro(tipo, btn) {
   document.querySelectorAll('.px-bg-img[data-src-dip]').forEach(img => {
     img.src = tipo === 'diputado' ? img.dataset.srcDip : img.dataset.srcSen;
   });
+  // Swap card content for scenes 1-4
+  const cardContent = PX_CARD_CONTENT[tipo];
+  if (cardContent) {
+    ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4'].forEach((id, i) => {
+      const scene = document.getElementById(id);
+      if (!scene || !cardContent[i]) return;
+      const unit = scene.querySelector('.px-unit');
+      const desc = scene.querySelector('.px-desc');
+      if (unit) unit.textContent = cardContent[i].unit;
+      if (desc) desc.innerHTML = cardContent[i].desc;
+    });
+  }
   // Regenerar hemiciclos SVG con datos del tipo correcto
   const hemKey  = tipo === 'diputado' ? 'dip' : 'sen';
   const total   = tipo === 'diputado' ? 130 : 60;
