@@ -279,7 +279,14 @@ span.indicacion{
     max-width: 450px;
     margin: 2px auto 0;
 }
-
+  span.rojo{
+    color: #fd0304;
+    font-weight: 800;
+  }
+  span.amarillo{
+    color: #f2cc0a;
+    font-weight: 800;
+  }
   span.cian{
     color: #759ba5;
     font-weight: 800;

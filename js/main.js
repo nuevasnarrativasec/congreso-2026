@@ -556,6 +556,18 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Antecedentes judiciales presentes.',
       desc: '<span class="cian">8 diputados electos declaran sentencias</span> penales y <span class="verde">9 sentencias no penales</span> en sus hojas de vida.'
+    },
+    {
+      unit: 'Mayor representación femenina',
+      desc: 'El Partido del Buen Gobierno registra la mayor proporción de mujeres entre sus diputados electos. De sus <span class="negro">18 curules</span>, <span class="rojo">10 corresponden a mujeres</span> y <span class="amarillo">8 a hombres</span>.'
+    },
+    {
+      unit: 'Sin educación superior',
+      desc: 'Juntos por el Perú concentra la mayor cantidad de diputados electos que no registran educación superior. <span class="negro">4 de sus representantes declaran no contar con estudios superiores en sus hojas de vida.</span>'
+    },
+    {
+      unit: 'Más excongresistas',
+      desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">16 de sus representantes registran antecedentes parlamentarios.</span>'
     }
   ],
   senador: [
@@ -574,6 +586,18 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Sentencias declaradas',
       desc: '<span class="cian">4 senadores electos</span>  declaran sentencias penales y <span class="verde">6 sentencias no penales</span> en sus hojas de vida.'
+    },
+    {
+      unit: 'Mayor representación masculina',
+      desc: 'Juntos por el Perú registra la mayor proporción de hombres entre sus senadores electos. <span class="negro">De sus 14 curules</span>, <span class="rojo">13 corresponden a hombres</span> <span class="negro">y</span> <span class="verde">1 a mujeres</span>.'
+    },
+    {
+      unit: 'Sin educación superior',
+      desc: 'Juntos por el Perú concentra la mayor cantidad de diputados electos que no registran educación superior. <span class="negro">Tres de sus representantes declaran no contar con estudios superiores en sus hojas de vida.</span>'
+    },
+    {
+      unit: 'Más excongresistas',
+      desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">En total, 18 de sus representantes registran antecedentes parlamentarios.</span>'
     }
   ]
 };
@@ -608,10 +632,10 @@ function setPxFiltro(tipo, btn) {
   document.querySelectorAll('.px-bg-img[data-src-dip]').forEach(img => {
     img.src = tipo === 'diputado' ? img.dataset.srcDip : img.dataset.srcSen;
   });
-  // Swap card content for scenes 1-4
+  // Swap card content for scenes 1-7
   const cardContent = PX_CARD_CONTENT[tipo];
   if (cardContent) {
-    ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4'].forEach((id, i) => {
+    ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4', 'pxs-5', 'pxs-6', 'pxs-7'].forEach((id, i) => {
       const scene = document.getElementById(id);
       if (!scene || !cardContent[i]) return;
       const unit = scene.querySelector('.px-unit');
