@@ -762,12 +762,21 @@ function initPxStories() {
 
 // ── GLOBAL FILTER ─────────────────────────────
 function setFiltroGlobal(tipo, btn) {
+  const input = document.getElementById('buscador-input');
+  const currentVal = input ? input.value : '';
   filtroGlobal = tipo;
   document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const input = document.getElementById('buscador-input');
   if (input) {
-    input.value = tipo === 'diputado' ? searchDiputado : searchSenador;
+    // Si había algo escrito, llevarlo al nuevo filtro; si no, restaurar lo que había
+    const carryOver = currentVal.trim().length > 0;
+    if (carryOver) {
+      if (tipo === 'diputado') searchDiputado = currentVal;
+      else searchSenador = currentVal;
+      input.value = currentVal;
+    } else {
+      input.value = tipo === 'diputado' ? searchDiputado : searchSenador;
+    }
     const wrap = document.querySelector('.hero-search');
     if (wrap) wrap.classList.toggle('has-value', input.value.trim().length > 0);
   }
