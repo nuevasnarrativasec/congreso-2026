@@ -108,10 +108,21 @@ function renderBancadas() {
     card.onclick = () => openBancadaPanel(partido, miembros, card);
     grid.appendChild(card);
     });
-    // hide panel
-    document.getElementById('bancada-panel').classList.remove('open');
-    document.getElementById('bancada-panel').style.display='none';
-    openBancada = null;
+    const allFiltered = Object.values(grupos).flat();
+    if (q && allFiltered.length === 1) {
+        const partido = allFiltered[0].partido;
+        const cardEl = grid.querySelector('.bancada-card');
+        if (cardEl) {
+            openBancada = null; // prevent toggle-close on repeated auto-select
+            openBancadaPanel(partido, grupos[partido], cardEl);
+            const firstItem = document.getElementById('panel-list').querySelector('.panel-list-item');
+            if (firstItem) showCV(0, firstItem);
+        }
+    } else {
+        document.getElementById('bancada-panel').classList.remove('open');
+        document.getElementById('bancada-panel').style.display='none';
+        openBancada = null;
+    }
 }
 
 function openBancadaPanel(partido, miembros, cardEl) {
@@ -707,8 +718,8 @@ function initPxStories() {
     const storiesTop  = stories.getBoundingClientRect().top + scrollY;
     const storiesBot  = storiesTop + stories.offsetHeight;
 
-    /* Show/hide the entire fixed-bg container */
-    const visible = scrollY + VH() > storiesTop && scrollY < storiesBot;
+    /* Show/hide the fixed-bg: only once section top is within 15% of viewport top (prevents overlap with sections above) */
+    const visible = scrollY >= storiesTop - VH() * 0.15 && scrollY < storiesBot;
     bgsEl.classList.toggle('px-vis', visible);
     if (!visible) return;
 
@@ -727,7 +738,9 @@ function initPxStories() {
       const fadeZone  = 0.28;  // fraction of 0→1 used for fade in/out
       const fadeIn    = Math.min(1, progress / fadeZone);
       const fadeOut   = Math.min(1, (1 - progress) / fadeZone);
-      bgEls[i].style.opacity = String(Math.min(fadeIn, fadeOut));
+      // Hint opacity: show bg-1 at 0.8 as soon as section is visible, fades as crossfade takes over
+      const hintOp    = (i === 0) ? 0.8 * Math.max(0, 1 - progress / (fadeZone * 1.5)) : 0;
+      bgEls[i].style.opacity = String(Math.max(hintOp, Math.min(fadeIn, fadeOut)));
 
       /* ── Card: slides up once progress > 0.35 ── */
       const cardStart = 0.35;
@@ -753,14 +766,28 @@ function setFiltroGlobal(tipo, btn) {
   document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const input = document.getElementById('buscador-input');
-  if (input) input.value = tipo === 'diputado' ? searchDiputado : searchSenador;
+  if (input) {
+    input.value = tipo === 'diputado' ? searchDiputado : searchSenador;
+    const wrap = document.querySelector('.hero-search');
+    if (wrap) wrap.classList.toggle('has-value', input.value.trim().length > 0);
+  }
   renderBancadas();
 }
 
 function onBuscadorInput(val) {
   if (filtroGlobal === 'diputado') searchDiputado = val;
   else searchSenador = val;
+  const wrap = document.querySelector('.hero-search');
+  if (wrap) wrap.classList.toggle('has-value', val.trim().length > 0);
   renderBancadas();
+}
+
+function clearBuscador() {
+  const input = document.getElementById('buscador-input');
+  if (!input) return;
+  input.value = '';
+  onBuscadorInput('');
+  input.focus();
 }
 
 // ── PARLAMENTO ANDINO ──────────────────────────────

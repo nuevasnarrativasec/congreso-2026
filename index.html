@@ -102,6 +102,7 @@
         </div>
         <div class="hero-search">
           <input type="text" id="buscador-input" class="hero-search-input" placeholder="Nombre o partido" oninput="onBuscadorInput(this.value)">
+          <button class="hero-search-clear" id="buscador-clear" onclick="clearBuscador()" aria-label="Limpiar búsqueda">&#x2715;</button>
           <svg class="hero-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
@@ -171,7 +172,7 @@
             <h2 class="sec-title">¿Cómo quedan conformadas las bancadas?</h2>  
             
             <h3>diputados</h3>
-            <p>
+            <p style="text-align: center;">
                 La nueva Cámara de Diputados estará integrada por seis principales fuerzas políticas que lograron superar la valla electoral. Con 40 curules proyectadas, Fuerza Popular tendría la bancada más numerosa en un Parlamento marcado por la fragmentación y la necesidad de alianzas.
             </p>
             <!-- hem-image-block: bloque reutilizable. Pasar id único, tabs y rutas de imágenes via data-attrs -->
@@ -234,7 +235,7 @@
             </div>
 
             <h3>senadores</h3>
-            <p>
+            <p style="margin:15px auto; text-align: center;">
                 El nuevo Senado estará conformado por 60 integrantes, incluidos 28 políticos con experiencia previa en el Congreso. La Cámara Alta combinará representación nacional y regional: 30 escaños serán elegidos por lista única nacional y otros 30 por circunscripciones distribuidas entre Lima y las regiones del país.
             </p>
             <div class="hem-image-block"
@@ -309,7 +310,7 @@
     <section id="mapa">
     <div class="max-w">
         <h2 class="sec-title">Representación por regiones</h2>
-        <p>
+        <p style="margin-bottom: 15px; text-align: center;">
             El mapa muestra cómo se distribuyen los escaños del Congreso 2026 en todo el país. Al seleccionar una región podrás revisar los congresistas electos y los partidos que dominarán cada circunscripción.
         </p>
         
@@ -347,9 +348,13 @@
     <!-- Intro: título + filtros (scroll normal, antes del parallax) -->
     <div id="px-intro">
         <h2 class="px-intro-title">El perfil del Parlamento 2026</h2>
-        <p style="margin-bottom: 30px;">
+        <p style="margin-bottom: 15px;">
             Edad, experiencia política, profesiones y otros hallazgos sobre los diputados y senadores que integrarán el nuevo Congreso bicameral.
         </p>
+        <div class="scroll">
+            <img src="./img/icon-scroll.jpg" alt="Scroll" width="100%">
+            <span>Haz scroll para ver más</span>
+        </div>
         <div class="px-intro-tabs">
             <button class="px-intro-tab px-intro-tab--active" id="px-tab-dip" onclick="setPxFiltro('diputado', this)">Datos diputados</button>
             <button class="px-intro-tab" id="px-tab-sen" onclick="setPxFiltro('senador', this)">Datos senadores</button>          
