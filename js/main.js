@@ -800,7 +800,7 @@ function initParlamentoAndino() {
     el.innerHTML = paMiembros.map((c, i) => {
         const foto = c.fotoCandidato || './img/fotos-candidatos/avatar-candidato.png';
         const meta = PARTIDOS[c.partido] || {};
-        return `<div class="pa-avatar-card${i === 0 ? ' active' : ''}" onclick="showPaCV(${i},this)">
+        return `<div class="pa-avatar-card" onclick="showPaCV(${i},this)">
             <div class="pa-avatar-ring">
                 <img src="${foto}" alt="${c.nombre}" class="pa-avatar-img" onerror="this.src='./img/fotos-candidatos/avatar-candidato.png'">
             </div>
@@ -809,7 +809,6 @@ function initParlamentoAndino() {
             ${c.edad ? `<div class="pa-edad">${c.edad} años</div>` : ''}
         </div>`;
     }).join('');
-    showPaCV(0, el.querySelector('.pa-avatar-card'));
 }
 
 function showPaCV(idx, el) {
