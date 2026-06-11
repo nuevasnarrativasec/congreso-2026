@@ -1,0 +1,49 @@
+REPORTE DE NOMBRES NO ENCONTRADOS / DISCREPANCIAS
+=======================================================
+Fuente A: candidatos.js  (congreso-2026)
+Fuente B: hojas-de-vida-original-jne.xlsx
+
+RESUMEN
+-------
+• Senadores en candidatos.js :  60
+• Diputados en candidatos.js : 109
+• Total:                        169
+
+• Senadores encontrados en JNE:  57 / 60  (95.0%)
+• Diputados encontrados en JNE: 100 / 109  (91.7%)
+
+MATCHES CON CORRECCIÓN DE GRAFÍA (incluidos en los Excel)
+---------------------------------------------------------
+• [SENADOR] candidatos.js: "Flavio Felipe Figallo Rivadeneira"
+         JNE: "FIGALLO RIVADENEYRA, FLAVIO FELIPE"  (DNI: 07793210)
+• [DIPUTADO] candidatos.js: "Jhon Brayam Valqui Ordoñez"
+         JNE: "VALQUI ORDOÑEZ, JHONN BRAYAM"  (DNI: 47654459)
+
+NOMBRES NO ENCONTRADOS EN hojas-de-vida-original-jne.xlsx
+----------------------------------------------------------
+Total: 12
+
+SENADORES (3):
+  1. Andres Avelino Ramos Huillcas
+  2. Jose Moises Chipana Chipana
+  3. Joaquin Yauri Tunque
+
+DIPUTADOS (9):
+  1. Hector Guillen Valencia
+  2. Luz Merida Soto Ferrari
+  3. Svieta Valia Fernandez Gonzalez
+  4. Marino Teofilo Lavado Valdivia
+  5. Catherin Norma Palomino Casavilca
+  6. Alejandro Jose Manay Pillaca
+  7. Graciela Chipana Condori
+  8. Jesus Perez Alccahuaman
+  9. Pilar Sulca Castillo
+
+NOTAS
+-----
+• Los nombres no encontrados no están registrados en el Excel del JNE con
+  ninguna variante de grafía que supere el umbral de coincidencia.
+  Pueden corresponder a candidatos aún no incorporados al padrón del JNE
+  o con diferencias sustanciales en la escritura de su nombre.
+• Los matches con corrección de grafía fueron verificados manualmente y
+  sí están incluidos en los Excel de salida.
