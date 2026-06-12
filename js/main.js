@@ -638,29 +638,34 @@ const PX_CARD_CONTENT = {
 // Editable manualmente: agrega, quita o cambia el orden de los objetos
 const PX_SEN10_PEOPLE = [
   {
-    foto:    'https://mpesije.jne.gob.pe/apidocs/28f4e30f-f8c9-4a48-b698-94f4480bd3fe.jpg',
+    foto:    './img/fotos-candidatos/senadores/serafin-lujan.png',
     nombre:  'Sarafín Andrés Luján',
     partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
   },
   {
-    foto:    'https://mpesije.jne.gob.pe/apidocs/9ff4f8d0-cff1-429b-b3b9-a2c9baf178cf.jpg',
+    foto:    './img/fotos-candidatos/senadores/iber-olarte.png',
     nombre:  'Iber Antenor Olarte',
     partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
   },
   {
     foto:    './img/fotos-candidatos/senadores/walter-gago.png',
     nombre:  'Walter Francisco Gago Rodríguez',
-    partido: 'PARTIDO CIVICO OBRAS',
+    partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
   },
   {
-    foto:    'https://mpesije.jne.gob.pe/apidocs/0a50619c-a4b3-4580-bdee-146c75827d2c.jpg',
+    foto:    './img/fotos-candidatos/senadores/lourdes-alcorta.png',
     nombre:  'Lourdes Alcorta',
     partido: 'RENOVACION POPULAR',
+    display: 'Renovación Popular',
   },
   {
-    foto:    'https://mpesije.jne.gob.pe/apidocs/f526053a-32bd-4f15-b314-92c9603db466.jpg',
+    foto:    './img/fotos-candidatos/senadores/miguel-velasquez.png',
     nombre:  'Miguel Ángel Velásquez García',
     partido: 'RENOVACION POPULAR',
+    display: 'Renovación Popular',
   },
 ];
 
@@ -782,15 +787,17 @@ function setPxFiltro(tipo, btn) {
       const logoImg = logoWrap ? logoWrap.querySelector('img') : null;
       if (logoImg) logoImg.style.display = cardContent[i].unit ? '' : 'none';
       if (logoWrap) logoWrap.style.height = cardContent[i].unit ? '' : '0';
-      // People grid para pxs-10 senador
+      // People grid para pxs-10 senador (dentro del .px-card-wrap, debajo del card)
       if (id === 'pxs-10') {
-        const card10 = scene.querySelector('.px-card');
-        let grid = card10 ? card10.querySelector('.px-people-grid') : null;
+        const wrap10 = scene.querySelector('.px-card-wrap');
+        let grid = scene.querySelector('.px-people-grid');
         if (tipo === 'senador') {
-          if (!grid && card10) {
+          if (!grid && wrap10) {
             grid = document.createElement('div');
             grid.className = 'px-people-grid';
-            card10.appendChild(grid);
+            wrap10.appendChild(grid);
+            wrap10.style.flexDirection = 'column';
+            wrap10.style.alignItems    = 'center';
           }
           if (grid) {
             grid.innerHTML = PX_SEN10_PEOPLE.map(p => {
@@ -800,12 +807,13 @@ function setPxFiltro(tipo, btn) {
                   <img src="${p.foto}" alt="${p.nombre}">
                 </div>
                 <div class="px-person-nombre">${p.nombre}</div>
-                <div class="px-person-partido" style="color:${col};">${p.partido}</div>
+                <div class="px-person-partido" style="color:${col};">${p.display || p.partido}</div>
               </div>`;
             }).join('');
           }
         } else {
           if (grid) grid.remove();
+          if (wrap10) { wrap10.style.flexDirection = ''; wrap10.style.alignItems = ''; }
         }
       }
     });
