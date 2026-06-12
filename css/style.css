@@ -1446,6 +1446,10 @@ span.separador-logo {
     .hero-search{
         max-width: 300px;
     }
+    .hem-footnote{
+        max-width: 90%;
+        width: 90%;
+    }
 
 
 }
