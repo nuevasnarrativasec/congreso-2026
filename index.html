@@ -93,23 +93,26 @@
 
     <!-- ══ HERO ════════════════════════════════ -->
     <section id="hero">
-    <div class="max-w">
-        <h1 class="hero-title">¿Quién es quién en el Congreso 2026?</h1>
-        <p class="hero-sub">Consulta quiénes son los <strong>130 diputados</strong> y <strong>60 senadores</strong> que integrarán el nuevo Congreso bicameral del Perú. Accede a sus hojas de vida, experiencia, estudios y trayectoria declarada ante el JNE.</p>
+        <div class="max-w">
+            <h1 class="hero-title">¿Quién es quién en el Congreso 2026?</h1>
+            <p class="hero-sub">Consulta quiénes son los <strong>130 diputados</strong> y <strong>60 senadores</strong> que integrarán el nuevo Congreso bicameral del Perú. Accede a sus hojas de vida, experiencia, estudios y trayectoria declarada ante el JNE.</p>  
+        </div>
+        <img src="./img/bg-header.png" alt="header" width="100%">
+    </section>
+
+    <div class="box-filtros">
         <div class="hero-filters">
             <button class="hf-btn active" onclick="setFiltroGlobal('diputado',this)">Diputados</button>
             <button class="hf-btn" onclick="setFiltroGlobal('senador',this)">Senadores</button>
         </div>
         <div class="hero-search">
-          <input type="text" id="buscador-input" class="hero-search-input" placeholder="Nombre o partido" oninput="onBuscadorInput(this.value)">
-          <button class="hero-search-clear" id="buscador-clear" onclick="clearBuscador()" aria-label="Limpiar búsqueda">&#x2715;</button>
-          <svg class="hero-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
+            <input type="text" id="buscador-input" class="hero-search-input" placeholder="Nombre o partido" oninput="onBuscadorInput(this.value)">
+            <button class="hero-search-clear" id="buscador-clear" onclick="clearBuscador()" aria-label="Limpiar búsqueda">&#x2715;</button>
+            <svg class="hero-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
         </div>
-       
     </div>
-    </section>
 
     <!-- ══ BANCADAS ══════════════════════════════ -->
     <section id="bancadas" style="padding: 40px 40px 50px;">
@@ -625,9 +628,7 @@
             </div>
         </div>
 
-    </section>
-
-    
+    </section>    
 
     <div class="box-metodologia">
         <h6>metodología</h6>
