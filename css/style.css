@@ -1443,6 +1443,10 @@ span.separador-logo {
         display: block;
     }
 
+    .hero-search{
+        max-width: 300px;
+    }
+
 
 }
 
