@@ -397,6 +397,14 @@ span.indicacion{
     width: 55%;
     margin: 60px auto 0;
 }
+.hem-footnote{
+  font-size: 0.78rem;
+  color: #888;
+  text-align: left;
+  margin: 0 auto;
+  padding: 12px 0 0;
+  width: 55%;
+}
 .hem-img{
   display:block;width:100%;height:auto;
   border-radius: var(--r);
@@ -495,7 +503,7 @@ span.indicacion{
   background: #fff;
   color: #000;
   font-family: 'Roboto', sans-serif;
-  font-size: .78rem;
+  font-size: .8rem;
   font-weight: 400;
   line-height: 1.4;
   padding: 7px 12px;
@@ -1343,6 +1351,17 @@ span.separador-logo {
     #hemiciclos,
     #mapa{
         padding: 30px 20px;
+        overflow-x: hidden;
+    }
+    .hem-tooltip{
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: auto;
+        top: 9vh;
+        max-width: calc(100vw - 40px);
+        width: max-content;
+        z-index: 999;
     }
         .hem-img-wrap{
             width: 95%;
@@ -1364,6 +1383,7 @@ span.separador-logo {
         margin-top: 0;
     }
     .hem-image-block{
+        margin: 60px auto;
         max-width: 320px;
     }
     .hotspot-1{

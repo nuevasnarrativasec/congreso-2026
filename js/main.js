@@ -409,6 +409,8 @@ function onHemToggle(input) {
   });
   const tabs = [...block.querySelectorAll('.hem-tab')];
   if (tabs[idx]) setHemImageTab(tabs[idx]);
+  const footnote = block.querySelector('.hem-footnote');
+  if (footnote) footnote.hidden = idx !== 1;
 }
 
 // ── HEM-IMAGE-BLOCK: función genérica reutilizable ──────────────────────────
