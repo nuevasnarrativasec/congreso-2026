@@ -882,8 +882,8 @@ function initPxStories() {
     const storiesTop  = stories.getBoundingClientRect().top + scrollY;
     const storiesBot  = storiesTop + stories.offsetHeight;
 
-    /* Show/hide the fixed-bg: only once section top is within 15% of viewport top (prevents overlap with sections above) */
-    const visible = scrollY >= storiesTop - VH() * 0.15 && scrollY < storiesBot;
+    /* Show/hide the fixed-bg: only once #px-stories top has passed the viewport top */
+    const visible = scrollY >= storiesTop && scrollY < storiesBot;
     bgsEl.classList.toggle('px-vis', visible);
     if (!visible) return;
 
@@ -948,10 +948,16 @@ function setFiltroGlobal(tipo, btn) {
 }
 
 function onBuscadorInput(val) {
+  const prevVal = filtroGlobal === 'diputado' ? searchDiputado : searchSenador;
   if (filtroGlobal === 'diputado') searchDiputado = val;
   else searchSenador = val;
   const wrap = document.querySelector('.hero-search');
   if (wrap) wrap.classList.toggle('has-value', val.trim().length > 0);
+  // Scroll suave al entrar la primera letra
+  if (val.trim().length > 0 && prevVal.trim().length === 0) {
+    const filtros = document.querySelector('.box-filtros');
+    if (filtros) filtros.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   renderBancadas();
 }
 

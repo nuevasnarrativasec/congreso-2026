@@ -727,8 +727,9 @@ span.indicacion{
   position:absolute;
   inset:0;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   justify-content:center;
+  padding-bottom:10vh;
   background:#fff;
   opacity:0;                     /* crossfade via JS */
   transition:opacity .7s ease;
