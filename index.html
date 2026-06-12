@@ -97,8 +97,8 @@
         <h1 class="hero-title">¿Quién es quién en el Congreso 2026?</h1>
         <p class="hero-sub">Consulta quiénes son los 130 diputados y 60 senadores que integrarán el nuevo Congreso bicameral del Perú. Accede a sus hojas de vida, experiencia, estudios y trayectoria declarada ante el JNE.</p>
         <div class="hero-filters">
-        <button class="hf-btn active" onclick="setFiltroGlobal('diputado',this)">Diputados</button>
-        <button class="hf-btn" onclick="setFiltroGlobal('senador',this)">Senadores</button>
+            <button class="hf-btn active" onclick="setFiltroGlobal('diputado',this)">Diputados</button>
+            <button class="hf-btn" onclick="setFiltroGlobal('senador',this)">Senadores</button>
         </div>
         <div class="hero-search">
           <input type="text" id="buscador-input" class="hero-search-input" placeholder="Nombre o partido" oninput="onBuscadorInput(this.value)">
@@ -107,11 +107,16 @@
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </div>
+       
     </div>
     </section>
 
     <!-- ══ BANCADAS ══════════════════════════════ -->
-    <section id="bancadas">
+    <section id="bancadas" style="padding: 40px 40px 50px;">
+         <div class="scroll" style="margin: 20px auto 10px; text-align: center;">
+            <img src="https://nuevasnarrativasec.github.io/planes-de-gobierno-2026/img/icon-click.jpg" alt="Scroll" width="100%">
+            <span>Presiona para ver más</span>
+        </div>
     <div class="max-w box-bancadas">        
         <div id="bancadas-grid" class="bancadas-grid"></div>
         <div id="bancada-panel" class="bancada-panel">
@@ -434,6 +439,36 @@
                 alt="" width="100%">            
         </div>
 
+        <!-- BG 8 -->
+        <div class="px-bg " id="px-bg-8">
+            <!--<div class="px-faces-grid" id="px-faces-grid"></div>-->
+            <img class="px-bg-img px-bg-img--bg"
+                src="./img/hemiciclo-parallax-diputados-8.jpg"
+                data-src-dip="./img/hemiciclo-parallax-diputados-8.jpg"
+                data-src-sen="./img/hemiciclo-parallax-senadores-8.jpg"
+                alt="" width="100%">            
+        </div>
+
+        <!-- BG 9 -->
+        <div class="px-bg " id="px-bg-9">
+            <!--<div class="px-faces-grid" id="px-faces-grid"></div>-->
+            <img class="px-bg-img px-bg-img--bg"
+                src="./img/hemiciclo-parallax-diputados-9.jpg"
+                data-src-dip="./img/hemiciclo-parallax-diputados-9.jpg"
+                data-src-sen="./img/hemiciclo-parallax-senadores-9.jpg"
+                alt="" width="100%">            
+        </div>
+
+        <!-- BG 10 -->
+        <div class="px-bg " id="px-bg-10">
+            <!--<div class="px-faces-grid" id="px-faces-grid"></div>-->
+            <img class="px-bg-img px-bg-img--bg"
+                src="./img/hemiciclo-parallax-diputados-10.jpg"
+                data-src-dip="./img/hemiciclo-parallax-diputados-10.jpg"
+                data-src-sen="./img/hemiciclo-parallax-senadores-10.jpg"
+                alt="" width="100%">            
+        </div>
+
       </div><!-- /#px-bgs -->
 
       <!-- Escenas scrolleables: solo contienen la tarjeta -->
@@ -515,6 +550,66 @@
                 <div class="px-unit">Más excongresistas</div>
                 <p class="px-desc">
                     Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">16 de sus representantes registran antecedentes parlamentarios.</span>
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="px-scene" id="pxs-8">
+            <div class="px-card-wrap">
+            <div class="px-card">
+                <!--<div class="px-tag px-tag--accent">Bajo la lupa</div>
+                <div class="px-number px-number--accent" id="px-stat-delitos-2">—</div>-->
+                <div class="box-info-con-logo">
+                    <img src="./img/logos-partidos/ahora-nacion.jpg" alt="Ahora Nación" width="100%">
+                    <div class="px-unit" style="line-height: 1.2;">                    
+                        Bernardino Jair Manrique Olivera
+                        <span style="color: #e90a0d; display: block;">Ahora Nación</span>
+                    </div>
+                </div>
+                
+                <p class="px-desc">
+                    <span class="negro">Es el diputado electo más joven.</span> Según su hoja de vida, tiene 29 años.
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="px-scene" id="pxs-9">
+            <div class="px-card-wrap">
+            <div class="px-card">
+                <!--<div class="px-tag px-tag--accent">Bajo la lupa</div>
+                <div class="px-number px-number--accent" id="px-stat-delitos-2">—</div>-->
+                <div class="box-info-con-logo">
+                    <img src="./img/logos-partidos/fuerza-popular-2.jpg" alt="Fuerza Popular" width="100%">
+                    <div class="px-unit" style="line-height: 1.2;">                    
+                        Javier Alejandro Castro Cruz
+                        <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>
+                    </div>
+                </div>
+                
+                <p class="px-desc">
+                    <span class="negro">Declara 5 sentencias penales y 8 sentencias no penales en su hojas de vida.</span> Las primeras corresponden a procesos por difamación, injuria y calumnia, mientras que las segundas están vinculadas a materias familiar, alimentaria y contractual.
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <div class="px-scene" id="pxs-10">
+            <div class="px-card-wrap">
+            <div class="px-card">
+                <!--<div class="px-tag px-tag--accent">Bajo la lupa</div>
+                <div class="px-number px-number--accent" id="px-stat-delitos-2">—</div>-->
+                <div class="box-info-con-logo">
+                    <img src="./img/logos-partidos/partido-civico-obras.jpg" alt="Partido Cívico Obras" width="100%">
+                    <div class="px-unit" style="line-height: 1.2;">                    
+                        Luis Aurelio Masco Cáceres
+                        <span style="color: #2c6111; display: block;">Partido Cívico Obras</span>
+                    </div>
+                </div>
+                
+                <p class="px-desc">
+                    Registra el mayor ingreso anual declarado. Según su hoja de vida, <span class="negro">reporta ingresos por más de S/ 3,3 millones.</span>
                 </p>
             </div>
             </div>

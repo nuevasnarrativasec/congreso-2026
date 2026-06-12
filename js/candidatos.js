@@ -785,7 +785,7 @@ const candidatos = [
   },
   {
     nombre: "Percy Herbert Osorio Palpan",
-    fotoCandidato: "https://mpesije.jne.gob.pe/apidocs/5feb176c-f41c-425c-b42c-70564c87a8ba.jpg",
+    fotoCandidato: "./img/fotos-candidatos/senadores/percy-osorio.png",
     genero: "M",
     edad: 47,
     partido: "JUNTOS POR EL PERU",
@@ -801,7 +801,7 @@ const candidatos = [
     cargosEleccion: "No",
     cargosPartidarios: "Miembro del comité distrital de Oxapampa en el partido Perú Posible.",
     continuidad: "Renunció a Alianza Nacional de Trabajadores Agricultores Universitarios Reservistas y Obreros en 2024 y a Partido Democrático Somos Perú en 2022.",
-    sentencias: "Sí declara 1 sentencia(s) con detalle de difamación con fallo de querella suspendida.",
+    sentencias: "Registra 2 sentencias no penales",
     demandas: "Declara no tener demandas",
     ingresos: "S/53,000",
     origenIngresos: "Sector público",
@@ -1933,7 +1933,7 @@ const candidatos = [
   },
   {
     nombre: "Walter Francisco Gago Rodriguez",
-    fotoCandidato: "https://mpesije.jne.gob.pe/apidocs/7d624b9c-c411-46c2-9368-5f1280b8646b.jpg",
+    fotoCandidato: "./img/fotos-candidatos/senadores/walter-gago.png",
     genero: "M",
     edad: 64,
     partido: "PARTIDO CIVICO OBRAS",

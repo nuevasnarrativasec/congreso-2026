@@ -579,6 +579,18 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Más excongresistas',
       desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">16 de sus representantes registran antecedentes parlamentarios.</span>'
+    },
+    {
+      unit: 'Bernardino Jair Manrique Olivera <span style="color: #e90a0d; display: block;">Ahora Nación</span>',
+      desc: '<span class="negro">Es el diputado electo más joven.</span> Según su hoja de vida, tiene 29 años.'
+    },
+    {
+      unit: 'Javier Alejandro Castro Cruz <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
+      desc: '<span class="negro">Declara 5 sentencias penales y 8 sentencias no penales en su hojas de vida.</span> Las primeras corresponden a procesos por difamación, injuria y calumnia, mientras que las segundas están vinculadas a materias familiar, alimentaria y contractual.'
+    },
+    {
+      unit: 'Luis Aurelio Masco Cáceres <span style="color: #2c6111; display: block;">Partido Cívico Obras</span>',
+      desc: 'Registra el mayor ingreso anual declarado. Según su hoja de vida, <span class="negro">reporta ingresos por más de S/ 3,3 millones.</span>'
     }
   ],
   senador: [
@@ -609,9 +621,121 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Más excongresistas',
       desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">En total, 18 de sus representantes registran antecedentes parlamentarios.</span>'
-    }
+    },
+    null, // índice 7 → pxs-8, manejado por renderPxScene8
+    {
+      unit: 'Elard Galo <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
+      desc: 'Registra el mayor ingreso declarado entre los senadores electos. Según su hoja de vida, <span class="negro">reporta ingresos por más de S/ 5,2 millones.</span>'
+    },
+    {
+      unit: '',
+      desc: 'Cinco senadores electos declaran <span class="negro">no registrar ingresos en sus hojas de vida.</span>'
+    },
   ]
 };
+
+// ── PERSONAS SIN INGRESOS DECLARADOS (pxs-10 senadores) ──────────────────────
+// Editable manualmente: agrega, quita o cambia el orden de los objetos
+const PX_SEN10_PEOPLE = [
+  {
+    foto:    'https://mpesije.jne.gob.pe/apidocs/28f4e30f-f8c9-4a48-b698-94f4480bd3fe.jpg',
+    nombre:  'Sarafín Andrés Luján',
+    partido: 'JUNTOS POR EL PERU',
+  },
+  {
+    foto:    'https://mpesije.jne.gob.pe/apidocs/9ff4f8d0-cff1-429b-b3b9-a2c9baf178cf.jpg',
+    nombre:  'Iber Antenor Olarte',
+    partido: 'JUNTOS POR EL PERU',
+  },
+  {
+    foto:    './img/fotos-candidatos/senadores/walter-gago.png',
+    nombre:  'Walter Francisco Gago Rodríguez',
+    partido: 'PARTIDO CIVICO OBRAS',
+  },
+  {
+    foto:    'https://mpesije.jne.gob.pe/apidocs/0a50619c-a4b3-4580-bdee-146c75827d2c.jpg',
+    nombre:  'Lourdes Alcorta',
+    partido: 'RENOVACION POPULAR',
+  },
+  {
+    foto:    'https://mpesije.jne.gob.pe/apidocs/f526053a-32bd-4f15-b314-92c9603db466.jpg',
+    nombre:  'Miguel Ángel Velásquez García',
+    partido: 'RENOVACION POPULAR',
+  },
+];
+
+function renderPxScene8(tipo) {
+  const scene = document.getElementById('pxs-8');
+  if (!scene) return;
+  const card = scene.querySelector('.px-card');
+  if (!card) return;
+
+  if (tipo === 'diputado') {
+    card.style.background  = '';
+    card.style.boxShadow   = '';
+    card.style.maxWidth    = '';
+    card.innerHTML = `
+      <div class="box-info-con-logo">
+        <img src="./img/logos-partidos/ahora-nacion.jpg" alt="Ahora Nación" width="100%">
+        <div class="px-unit" style="line-height:1.2;">
+          Bernardino Jair Manrique Olivera
+          <span style="color:#e90a0d;display:block;">Ahora Nación</span>
+        </div>
+      </div>
+      <p class="px-desc">
+        <span class="negro">Es el diputado electo más joven.</span> Según su hoja de vida, tiene 29 años.
+      </p>`;
+    return;
+  }
+
+  // Senador: custom card styles
+  card.style.background  = 'transparent';
+  card.style.boxShadow   = 'none';
+  card.style.maxWidth    = '500px';
+
+  // Senador: cards for senators with most declared sentences
+  const senConSentencias = (typeof candidatos !== 'undefined' ? candidatos : [])
+    .filter(c => c.tipoCandidatura === 'senador' && c.delitos)
+    .sort((a, b) => {
+      const numA = parseInt(((a.sentencias || '').match(/(\d+)\s*sentencia/i) || [])[1] || '1');
+      const numB = parseInt(((b.sentencias || '').match(/(\d+)\s*sentencia/i) || [])[1] || '1');
+      return numB - numA;
+    })
+    .slice(0, 2);
+
+  const cardsHtml = senConSentencias.map(c => {
+    const p = (typeof PARTIDOS !== 'undefined' && PARTIDOS[c.partido]) || {};
+    const color = p.color || '#888';
+    const logo  = p.logo  || '';
+    const foto  = c.fotoCandidato || '';
+    const avatarInner = foto
+      ? `<img src="${foto}" alt="${c.nombre}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
+      : `<span style="font-size:1rem;font-weight:700;color:#fff;background:${color};width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;">${(c.nombre||'').trim().split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}</span>`;
+    const sentDescHtml = (() => {
+      const raw = (c.sentencias || '').replace(/^Sí\s+/i, '').trim();
+      if (!raw) return '';
+      const cap = raw.charAt(0).toUpperCase() + raw.slice(1);
+      const highlighted = cap.replace(/(\d+\s+sentencias?(?:\s+no\s+penales?|\s+penales?)?)/i, '<span>$1</span>');
+      return `<p>${highlighted}</p>`;
+    })();
+    return `<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <div style="flex-shrink:0;width:65px;height:65px;border-radius:50%;padding:2px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;overflow:hidden;background:${color};">
+        ${avatarInner}
+      </div>
+      <div style="flex:1;background:#fff;border-radius:14px;padding:12px 25px;box-shadow:0 1px 5px rgba(0,0,0,.09);">            
+            ${logo ? `<img src="${logo}" alt="${c.partido}" style="height:30px;object-fit:contain;margin-bottom:3px;display:inline-block; vertical-align:top;">` : ''}   
+            <div class="info-candidato-sentencias" style="display:inline-block; vertical-align:top; line-height: 1.1; margin-bottom: 5px;">         
+                <div style="font-family: 'Roboto', sans-serif; font-size:.85rem; font-weight:800;color:#111; display: inline-block; vertical-align: top;">${c.nombre}</div>
+                <div style="font-family: 'Roboto', sans-serif; font-size:.85rem; font-weight:800;color:${color};margin-bottom:1px;">${c.partido}</div>
+            </div>
+        <div style="font-size:.72rem;color:#666;margin-top:2px;" class="texto-sentencia">${sentDescHtml}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  card.innerHTML = `  
+    <div>${cardsHtml}</div>`;
+}
 
 function setPxFiltro(tipo, btn) {
   pxFiltroActual = tipo;
@@ -646,15 +770,47 @@ function setPxFiltro(tipo, btn) {
   // Swap card content for scenes 1-7
   const cardContent = PX_CARD_CONTENT[tipo];
   if (cardContent) {
-    ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4', 'pxs-5', 'pxs-6', 'pxs-7'].forEach((id, i) => {
+    ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4', 'pxs-5', 'pxs-6', 'pxs-7', 'pxs-8', 'pxs-9', 'pxs-10'].forEach((id, i) => {
+      if (id === 'pxs-8') return; // handled separately by renderPxScene8
       const scene = document.getElementById(id);
       if (!scene || !cardContent[i]) return;
       const unit = scene.querySelector('.px-unit');
       const desc = scene.querySelector('.px-desc');
-      if (unit) unit.textContent = cardContent[i].unit;
+      if (unit) unit.innerHTML = cardContent[i].unit;
       if (desc) desc.innerHTML = cardContent[i].desc;
+      const logoWrap = scene.querySelector('.box-info-con-logo');
+      const logoImg = logoWrap ? logoWrap.querySelector('img') : null;
+      if (logoImg) logoImg.style.display = cardContent[i].unit ? '' : 'none';
+      if (logoWrap) logoWrap.style.height = cardContent[i].unit ? '' : '0';
+      // People grid para pxs-10 senador
+      if (id === 'pxs-10') {
+        const card10 = scene.querySelector('.px-card');
+        let grid = card10 ? card10.querySelector('.px-people-grid') : null;
+        if (tipo === 'senador') {
+          if (!grid && card10) {
+            grid = document.createElement('div');
+            grid.className = 'px-people-grid';
+            card10.appendChild(grid);
+          }
+          if (grid) {
+            grid.innerHTML = PX_SEN10_PEOPLE.map(p => {
+              const col = (PARTIDOS[p.partido] || {}).color || '#888';
+              return `<div class="px-person">
+                <div class="px-person-avatar" style="border-color:${col};background:${col};">
+                  <img src="${p.foto}" alt="${p.nombre}">
+                </div>
+                <div class="px-person-nombre">${p.nombre}</div>
+                <div class="px-person-partido" style="color:${col};">${p.partido}</div>
+              </div>`;
+            }).join('');
+          }
+        } else {
+          if (grid) grid.remove();
+        }
+      }
     });
   }
+  renderPxScene8(tipo);
   // Regenerar hemiciclos SVG con datos del tipo correcto
   const hemKey  = tipo === 'diputado' ? 'dip' : 'sen';
   const total   = tipo === 'diputado' ? 130 : 60;
