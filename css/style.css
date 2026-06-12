@@ -836,6 +836,16 @@ span.indicacion{
   transition:transform .95s cubic-bezier(.22,.68,0,1.15), opacity .8s ease;
   will-change:transform,opacity;
 }
+/* Primeros 4 */
+#pxs-1 .px-card, #pxs-2 .px-card,
+#pxs-3 .px-card, #pxs-4 .px-card { background: #fefff5; }
+/* Siguientes 3 */
+#pxs-5 .px-card, #pxs-6 .px-card,
+#pxs-7 .px-card { background: #fef8f4; }
+/* Restantes */
+#pxs-8 .px-card, #pxs-9 .px-card,
+#pxs-10 .px-card { background: #f5f8ff; }
+
 .px-card.px-in{
   transform:translateY(0);
   opacity:1;

@@ -727,7 +727,7 @@ function renderPxScene8(tipo) {
       <div style="flex-shrink:0;width:65px;height:65px;border-radius:50%;padding:2px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;overflow:hidden;background:${color};">
         ${avatarInner}
       </div>
-      <div style="flex:1;background:#fff;border-radius:14px;padding:12px 25px;box-shadow:0 1px 5px rgba(0,0,0,.09);">            
+      <div style="flex:1;background:#f5f8ff;border-radius:14px;padding:12px 25px;box-shadow:0 1px 5px rgba(0,0,0,.09);">            
             ${logo ? `<img src="${logo}" alt="${c.partido}" style="height:30px;object-fit:contain;margin-bottom:3px;display:inline-block; vertical-align:top;">` : ''}   
             <div class="info-candidato-sentencias" style="display:inline-block; vertical-align:top; line-height: 1.1; margin-bottom: 5px;">         
                 <div style="font-family: 'Roboto', sans-serif; font-size:.85rem; font-weight:800;color:#111; display: inline-block; vertical-align: top;">${c.nombre}</div>
