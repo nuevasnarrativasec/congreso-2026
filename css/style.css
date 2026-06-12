@@ -112,8 +112,9 @@ span.indicacion{
 /* ── BANCADAS ───────────────────────────── */
 #bancadas{
     background:var(--paper);
-        max-width: 1024px;
+    max-width: 1024px;
     margin: 0 auto;
+    padding: 10px 20px 50px !important;
 }
 .bancadas-grid{
     display: grid;
@@ -1260,6 +1261,9 @@ span.separador-logo {
     font-weight: 300;
 }
 
+.scroll-horizontal{
+    display: none;
+}
 
 @media(max-width: 640px){
 
@@ -1275,16 +1279,46 @@ span.separador-logo {
     #bancadas{
         padding: 70px 10px;
     }
+        /* Panel: column layout en móvil */
+        .bancada-panel.open{
+            flex-direction: column;
+        }
         .panel-list{
-            width: 125px;
+            width: 100%;
+            max-height: none;
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
+            flex-direction: row;
+            border-right: none;
+            border-bottom: 1px solid var(--border);
+            /* scroll suave con inercia */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
+        .panel-list::-webkit-scrollbar{ display: none; }
         .panel-list-item{
-            align-items: flex-start;
-            flex-direction: column;            
-            gap: 1px;
-            padding: 12px 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 12px;
+            border-bottom: none;
+            border-right: 1px solid #f0ede8;
+            min-width: 80px;
+            text-align: center;
+            flex-shrink: 0;
+            max-width: 130px;
         }
+        .pi-name{
+            font-size: .9rem;
+            padding: 0;
+        }
+        .pi-badge{ margin-left: 0; }
+        .pi-avatar{ margin-left: 0; }
+        .pi-avatar img{ margin-bottom: 0; }
         .panel-cv{
+            width: 100%;
+            max-height: 60vh;
             padding: 10px;
         }
             .ficha-header-card{
@@ -1295,19 +1329,13 @@ span.separador-logo {
             }
             .ficha-avatar-wrap{
                 height: 60px;
-                width: 60px;                
+                width: 60px;
             }
             .ficha-nombre{
                 font-size: 1.1rem;
             }
-            .pi-avatar{
-                margin-left: 10px;
-            }
-            .pi-avatar img{
-                margin-bottom: 10px;
-            }
-            .pi-name{
-                padding: 0 10px;
+            .ficha-big-amount{
+                font-size: 1.5rem;
             }
             .ficha-big-amount{
                 font-size: 1.5rem;
@@ -1389,6 +1417,10 @@ span.separador-logo {
 
     .ficha-pdf-btn{
       max-width: 100%;
+    }
+
+    .scroll-horizontal{
+        display: block;
     }
 
 
