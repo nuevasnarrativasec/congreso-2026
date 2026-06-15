@@ -6853,7 +6853,7 @@ const candidatos = [
   },
   {
     nombre: "María Luisa Silupu Inga",
-    fotoCandidato: "../img/fotos-candidatos/diputados/fuerza-popular/maria-silupu-inga.jpg?v2",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/maria-silupu-inga.jpg?v2",
     genero: "F",
     edad: 56,
     partido: "FUERZA POPULAR",
