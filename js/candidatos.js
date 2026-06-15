@@ -6894,7 +6894,7 @@ const candidatos = [
   },
   {
     nombre: "Oswar Elbis Cahuaza Mitivire",
-    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/juntos-por-el-peru/oswar-cahuaza.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/juntos-por-el-peru/oswar-cahuaza-mitivire.jpg",
     genero: "M",
     edad: 51,
     partido: "JUNTOS POR EL PERU",
