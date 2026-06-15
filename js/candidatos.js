@@ -7674,7 +7674,7 @@ const candidatos = [
   },
   {
     nombre: "Kim Tami Muñoz Yurivilca",
-    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/kim-tami-munoz-yutivilca.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/kim-tami-munoz-yutivilca.jpg?v2",
     genero: "F",
     edad: 37,
     partido: "FUERZA POPULAR",
