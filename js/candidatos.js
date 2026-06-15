@@ -6976,7 +6976,7 @@ const candidatos = [
   },
   {
     nombre: "Ana Luisa Yuffra Lugo",
-    fotoCandidato: "../img/fotos-candidatos/diputados/fuerza-popular/ana-yuffra-lugo.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/ana-yuffra-lugo.jpg",
     genero: "F",
     edad: 67,
     partido: "FUERZA POPULAR",
