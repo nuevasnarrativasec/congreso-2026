@@ -6402,7 +6402,7 @@ const candidatos = [
   },
   {
     nombre: "Hector Guillen Valencia",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/hector-guillen-valencia.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/hector-guillen-valencia.jpg",
     genero: "M",
     edad: 55,
     partido: "JUNTOS POR EL PERU",
@@ -6443,7 +6443,7 @@ const candidatos = [
   },
   {
     nombre: "Luz Merida Soto Ferrari",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/luz-merida-soto-ferrari.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/luz-merida-soto-ferrari.jpg",
     genero: "F",
     edad: 59,
     partido: "JUNTOS POR EL PERU",
@@ -6484,7 +6484,7 @@ const candidatos = [
   },
   {
     nombre: "Svieta Valia Fernandez Gonzalez",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/svieta-valia-fernandez-gonzalez.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/svieta-valia-fernandez-gonzalez.jpg",
     genero: "F",
     edad: 36,
     partido: "JUNTOS POR EL PERU",
@@ -6525,7 +6525,7 @@ const candidatos = [
   },
   {
     nombre: "Andres Avelino Ramos Huillcas",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/andres-avelino-ramos-huillcas.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/andres-avelino-ramos-huillcas.jpg",
     genero: "M",
     edad: 66,
     partido: "JUNTOS POR EL PERU",
@@ -6566,7 +6566,7 @@ const candidatos = [
   },
   {
     nombre: "Marino Teofilo Lavado Valdivia",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/marino-teofilo-lavado-valdivia.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/marino-teofilo-lavado-valdivia.jpg",
     genero: "M",
     edad: 41,
     partido: "JUNTOS POR EL PERU",
@@ -6607,7 +6607,7 @@ const candidatos = [
   },
   {
     nombre: "Catherin Norma Palomino Casavilca",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/catherin-norma-palomino-casavilca.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/catherin-norma-palomino-casavilca.jpg",
     genero: "F",
     edad: 33,
     partido: "JUNTOS POR EL PERU",
@@ -6648,7 +6648,7 @@ const candidatos = [
   },
   {
     nombre: "Jose Moises Chipana Chipana",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/jose-moises-chipana-chipana.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/jose-moises-chipana-chipana.jpg",
     genero: "M",
     edad: 50,
     partido: "JUNTOS POR EL PERU",
@@ -6689,7 +6689,7 @@ const candidatos = [
   },
   {
     nombre: "Joaquin Yauri Tunque",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/joaquin-yauri-tunque.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/joaquin-yauri-tunque.jpg",
     genero: "M",
     edad: 50,
     partido: "JUNTOS POR EL PERU",
@@ -6730,7 +6730,7 @@ const candidatos = [
   },
   {
     nombre: "Alejandro Jose Manay Pillaca",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/alejandro-jose-manay-pillaca.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/alejandro-jose-manay-pillaca.jpg",
     genero: "M",
     edad: 37,
     partido: "JUNTOS POR EL PERU",
@@ -6771,7 +6771,7 @@ const candidatos = [
   },
   {
     nombre: "Graciela Chipana Condori",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/graciela-chipana-condori.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/graciela-chipana-condori.jpg",
     genero: "F",
     edad: 49,
     partido: "JUNTOS POR EL PERU",
@@ -6812,7 +6812,7 @@ const candidatos = [
   },
   {
     nombre: "Jesus Perez Alccahuaman",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/jesus-perez-alccahuaman.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/jesus-perez-alccahuaman.jpg",
     genero: "M",
     edad: 37,
     partido: "JUNTOS POR EL PERU",
@@ -6853,7 +6853,7 @@ const candidatos = [
   },
   {
     nombre: "Pilar Sulca Castillo",
-    fotoCandidato: "../img/fotos-candidatos/juntos-por-el-peru/pilar-sulca-castillo.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/pilar-sulca-castillo.jpg",
     genero: "F",
     edad: 49,
     partido: "JUNTOS POR EL PERU",
@@ -6976,7 +6976,7 @@ const candidatos = [
   },
   {
     nombre: "Nery Rodolfo Fernández Nina",
-    fotoCandidato: "./img/fotos-candidatos/diputados/partido-del-buen-gobierno/nery-fernandez-nina.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/partido-del-buen-gobierno/nery-fernandez-nina.jpg",
     genero: "M",
     edad: 53,
     partido: "PARTIDO DEL BUEN GOBIERNO",
@@ -7100,7 +7100,7 @@ const candidatos = [
 
   {
     nombre: "Aldo Antonio Bravo Quispe",
-    fotoCandidato: "./img/fotos-candidatos/diputados/renovacion-popular/aldo-bravo-quispe.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/renovacion-popular/aldo-bravo-quispe.jpg",
     genero: "M",
     edad: 47,
     partido: "RENOVACION POPULAR",
@@ -7141,7 +7141,7 @@ const candidatos = [
   },
   {
     nombre: "Milagros Karina Santana Vera",
-    fotoCandidato: "./img/fotos-candidatos/diputados/partido-del-buen-gobierno/milagros-santana-vera.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/partido-del-buen-gobierno/milagros-santana-vera.jpg",
     genero: "F",
     edad: 52,
     partido: "PARTIDO DEL BUEN GOBIERNO",
@@ -7182,7 +7182,7 @@ const candidatos = [
   },
   {
     nombre: "Liliana Milagros Takayama Jimenez",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/liliana-takayama-jimenez.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/liliana-takayama-jimenez.jpg",
     genero: "F",
     edad: 48,
     partido: "FUERZA POPULAR",
@@ -7223,7 +7223,7 @@ const candidatos = [
   },
   {
     nombre: "Geanmarco Antonio Quezada Castro",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/geanmarco-quezada-castro.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/geanmarco-quezada-castro.jpg",
     genero: "M",
     edad: 49,
     partido: "FUERZA POPULAR",
@@ -7264,7 +7264,7 @@ const candidatos = [
   },
   {
     nombre: "Raúl Jesús Camargo Porta",
-    fotoCandidato: "./img/fotos-candidatos/diputados/obras/raul-camargo-porta.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/obras/raul-camargo-porta.jpg",
     genero: "M",
     edad: 65,
     partido: "PARTIDO CIVICO OBRAS",
@@ -7305,7 +7305,7 @@ const candidatos = [
   },
   {
     nombre: "Angel Renato Meneses Crispin",
-    fotoCandidato: "./img/fotos-candidatos/diputados/ahora-nacion/angel-meneses-crispin.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/ahora-nacion/angel-meneses-crispin.jpg",
     genero: "M",
     edad: 47,
     partido: "AHORA NACION - AN",
@@ -7346,7 +7346,7 @@ const candidatos = [
   },
   {
     nombre: "María Candelaria Ramos Rosales",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/maria-candelaria-ramos-rosales.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/maria-candelaria-ramos-rosales.jpg",
     genero: "F",
     edad: 65,
     partido: "FUERZA POPULAR",
@@ -7387,7 +7387,7 @@ const candidatos = [
   },
   {
     nombre: "Carlos Alberto Dominguez Herrera",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/carlos-alberto-dominguez-herrera.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/carlos-alberto-dominguez-herrera.jpg",
     genero: "M",
     edad: 46,
     partido: "FUERZA POPULAR",
@@ -7469,7 +7469,7 @@ const candidatos = [
   },
   {
     nombre: "Edwin Espinoza Huillca",
-    fotoCandidato: "./img/fotos-candidatos/diputados/partido-del-buen-gobierno/edwin-espinoza-huillca.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/partido-del-buen-gobierno/edwin-espinoza-huillca.jpg",
     genero: "M",
     edad: 43,
     partido: "PARTIDO DEL BUEN GOBIERNO",
@@ -7510,7 +7510,7 @@ const candidatos = [
   },
   {
     nombre: "Francisco Javier Gatica Vega",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/francisco-javier-gatica-vega.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/francisco-javier-gatica-vega.jpg",
     genero: "M",
     edad: 41,
     partido: "FUERZA POPULAR",
@@ -7551,7 +7551,7 @@ const candidatos = [
   },
   {
     nombre: "Daniel Jefferson Varas Seguin",
-    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/daniel-jefferson-varas-seguin.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/juntos-por-el-peru/daniel-jefferson-varas-seguin.jpg",
     genero: "M",
     edad: 40,
     partido: "JUNTOS POR EL PERU",
@@ -7592,7 +7592,7 @@ const candidatos = [
   },
   {
     nombre: "Luis Angel Jibaja Ramos",
-    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/luis-angel-jibaja-ramos.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/juntos-por-el-peru/luis-angel-jibaja-ramos.jpg",
     genero: "M",
     edad: 39,
     partido: "JUNTOS POR EL PERU",
@@ -7633,7 +7633,7 @@ const candidatos = [
   },
   {
     nombre: "Jessica Roxana Guevara Ramirez",
-    fotoCandidato: "./img/fotos-candidatos/diputados/juntos-por-el-peru/jessica-roxana-guevara-ramirez.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/juntos-por-el-peru/jessica-roxana-guevara-ramirez.jpg",
     genero: "F",
     edad: 37,
     partido: "JUNTOS POR EL PERU",
@@ -7674,7 +7674,7 @@ const candidatos = [
   },
   {
     nombre: "Kim Tami Muñoz Yutivilca",
-    fotoCandidato: "./img/fotos-candidatos/diputados/fuerza-popular/kim-tami-munoz-yutivilca.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/kim-tami-munoz-yutivilca.jpg",
     genero: "F",
     edad: 37,
     partido: "FUERZA POPULAR",
@@ -7715,7 +7715,7 @@ const candidatos = [
   },
   {
     nombre: "Romina Alejandra Uribe Saenz",
-    fotoCandidato: "./img/fotos-candidatos/diputados/partido-del-buen-gobierno/romina-uribe-saenz.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/partido-del-buen-gobierno/romina-uribe-saenz.jpg",
     genero: "F",
     edad: 28,
     partido: "PARTIDO DEL BUEN GOBIERNO",
@@ -7799,7 +7799,7 @@ const candidatos = [
 
   {
     nombre: "PAUL PERCY FERNANDEZ BRAVO",
-    fotoCandidato: "./img/fotos-candidatos/parlamento-andino/percy-fernandez.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/parlamento-andino/percy-fernandez.jpg",
     genero: "M",
     edad: 66,
     partido: "JUNTOS POR EL PERU",
@@ -7840,7 +7840,7 @@ const candidatos = [
   },
   {
     nombre: "ROSARIO DEL CARMEN MORI ISUISA",
-    fotoCandidato: "./img/fotos-candidatos/parlamento-andino/rosario-mori.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/parlamento-andino/rosario-mori.jpg",
     genero: "F",
     edad: 57,
     partido: "JUNTOS POR EL PERU",
@@ -7881,7 +7881,7 @@ const candidatos = [
   },
   {
     nombre: "LUIS FERNANDO GALARRETA VELARDE",
-    fotoCandidato: "./img/fotos-candidatos/parlamento-andino/luis-galarreta.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/parlamento-andino/luis-galarreta.jpg",
     genero: "M",
     edad: 55,
     partido: "FUERZA POPULAR",
@@ -7922,7 +7922,7 @@ const candidatos = [
   },
   {
     nombre: "MAALI OLGA BETTY DEL POMAR SAETTONE",
-    fotoCandidato: "./img/fotos-candidatos/parlamento-andino/maali-del-pomar.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/parlamento-andino/maali-del-pomar.jpg",
     genero: "F",
     edad: 49,
     partido: "RENOVACION POPULAR",
@@ -7963,7 +7963,7 @@ const candidatos = [
   },
   {
     nombre: "JOSE GUILLERMO RAMOS ANAHUE",
-    fotoCandidato: "./img/fotos-candidatos/parlamento-andino/jose-ramos.jpg",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/parlamento-andino/jose-ramos.jpg",
     genero: "M",
     edad: 38,
     partido: "AHORA NACION - AN",
