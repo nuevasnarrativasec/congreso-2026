@@ -7673,7 +7673,7 @@ const candidatos = [
     posicion_lista: null
   },
   {
-    nombre: "Kim Tami Muñoz Yutivilca",
+    nombre: "Kim Tami Muñoz Yurivilca",
     fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/diputados/fuerza-popular/kim-tami-munoz-yutivilca.jpg",
     genero: "F",
     edad: 37,
