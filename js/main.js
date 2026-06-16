@@ -676,6 +676,29 @@ const PX_SEN10_PEOPLE = [
   },
 ];
 
+// ── PERSONAS SIN ESTUDIOS UNIVERSITARIOS (pxs-9 senadores) ───────────────────
+// Editable manualmente: agrega, quita o cambia el orden de los objetos
+const PX_SEN9_ESTUDIOS_PEOPLE = [
+  {
+    foto:    './img/fotos-candidatos/senadores/serafin-lujan.png',
+    nombre:  'Serafín Andrés Luján',
+    partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
+  },
+  {
+    foto:    './img/fotos-candidatos/juntos-por-el-peru/jose-castillo-terrones.png',
+    nombre:  'José Mercedes Castillo Terrones',
+    partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
+  },
+  {
+    foto:    './img/fotos-candidatos/juntos-por-el-peru/andres-avelino-ramos-huillcas.png',
+    nombre:  'Andrés Avelino Ramos Huillcas',
+    partido: 'JUNTOS POR EL PERU',
+    display: 'Juntos por el Perú',
+  },
+];
+
 function renderPxScene8(tipo) {
   const sceneId = tipo === 'senador' ? 'pxs-5' : 'pxs-8';
   const scene = document.getElementById(sceneId);
@@ -706,15 +729,13 @@ function renderPxScene8(tipo) {
   card.style.boxShadow   = 'none';
   card.style.maxWidth    = '500px';
 
-  // Senador: cards for senators with most declared sentences
-  const senConSentencias = (typeof candidatos !== 'undefined' ? candidatos : [])
-    .filter(c => c.tipoCandidatura === 'senador' && c.delitos)
-    .sort((a, b) => {
-      const numA = parseInt(((a.sentencias || '').match(/(\d+)\s*sentencia/i) || [])[1] || '1');
-      const numB = parseInt(((b.sentencias || '').match(/(\d+)\s*sentencia/i) || [])[1] || '1');
-      return numB - numA;
-    })
-    .slice(0, 2);
+  // Senador: candidatos destacados con sentencias declaradas
+  const PX_SEN_SENTENCIAS_NAMES = [
+    'Walter Francisco Gago Rodríguez',
+    'Percy Herbert Osorio Palpan'
+  ];
+  const allSenadores = (typeof candidatos !== 'undefined' ? candidatos : []).filter(c => c.tipoCandidatura === 'senador');
+  const senConSentencias = PX_SEN_SENTENCIAS_NAMES.map(name => allSenadores.find(c => c.nombre === name)).filter(Boolean);
 
   const cardsHtml = senConSentencias.map(c => {
     const p = (typeof PARTIDOS !== 'undefined' && PARTIDOS[c.partido]) || {};
@@ -828,6 +849,35 @@ function setPxFiltro(tipo, btn) {
         } else {
           if (grid) grid.remove();
           if (wrap6) { wrap6.style.flexDirection = ''; wrap6.style.alignItems = ''; }
+        }
+      }
+      // People grid para pxs-9 senador (Sin estudios universitarios)
+      if (id === 'pxs-9') {
+        const wrap9 = scene.querySelector('.px-card-wrap');
+        let grid9 = scene.querySelector('.px-people-grid');
+        if (tipo === 'senador') {
+          if (!grid9 && wrap9) {
+            grid9 = document.createElement('div');
+            grid9.className = 'px-people-grid';
+            wrap9.appendChild(grid9);
+            wrap9.style.flexDirection = 'column';
+            wrap9.style.alignItems    = 'center';
+          }
+          if (grid9) {
+            grid9.innerHTML = PX_SEN9_ESTUDIOS_PEOPLE.map(p => {
+              const col = (PARTIDOS[p.partido] || {}).color || '#888';
+              return `<div class="px-person">
+                <div class="px-person-avatar" style="border-color:${col};background:${col};">
+                  <img src="${p.foto}" alt="${p.nombre}">
+                </div>
+                <div class="px-person-nombre">${p.nombre}</div>
+                <div class="px-person-partido" style="color:${col};">${p.display || p.partido}</div>
+              </div>`;
+            }).join('');
+          }
+        } else {
+          if (grid9) grid9.remove();
+          if (wrap9) { wrap9.style.flexDirection = ''; wrap9.style.alignItems = ''; }
         }
       }
     });
