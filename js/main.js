@@ -556,44 +556,47 @@ const PX_CARD_CONTENT = {
   diputado: [
     {
       unit: 'Lejos de la paridad',
-      desc: 'De los 130 diputados electos, <span class="cian">54 son mujeres (42%)</span> y <span class="verde">76 hombres (58%)</span>.'
+      desc: 'De los 130 diputados electos, <span class="cian">54 son mujeres (41%)</span> y <span class="verde">76 hombres (59%)</span>.'
     },
     {
       unit: 'Generación X al mando',
-      desc: 'Los diputados electos tienen una edad promedio de 49 años. <span class="negro">El menor registra</span> <span class="cian">29 años</span> <span class="negro">y el mayor</span> <span class="verde">77 años</span>.'
+      desc: 'La edad promedio de los diputados electos es de 48 años. <span class="negro">El más joven tiene</span> <span class="cian">28 años</span> <span class="negro">y el de mayor edad,</span> <span class="verde">77</span>.'
     },
     {
-      unit: 'Predominan los estudios de posgrado',
-      desc: 'Según sus hojas de vida, <span class="cian">33 diputados</span> electos cuentan con <span class="cian">grado de magíster</span> <span class="verde">y 3 con doctorado</span>.'
+      unit: 'Alta presencia de posgrado',
+      desc: 'Según la información consignada en las hojas de vida presentadas ante el JNE, <span class="cian">37 diputados</span> electos cuentan con <span class="cian">grado de magíster</span> <span class="verde">y 5 con doctorado</span>.'
     },
     {
-      unit: 'Antecedentes judiciales presentes.',
-      desc: '<span class="cian">8 diputados electos declaran sentencias</span> penales y <span class="verde">9 sentencias no penales</span> en sus hojas de vida.'
-    },
-    {
-      unit: 'Mayor representación femenina',
-      desc: 'El Partido del Buen Gobierno registra la mayor proporción de mujeres entre sus diputados electos. De sus <span class="negro">18 curules</span>, <span class="rojo">10 corresponden a mujeres</span> y <span class="amarillo">8 a hombres</span>.'
-    },
-    {
-      unit: 'Sin educación superior',
-      desc: 'Juntos por el Perú concentra la mayor cantidad de diputados electos que no registran educación superior. <span class="negro">4 de sus representantes declaran no contar con estudios superiores en sus hojas de vida.</span>'
-    },
-    {
-      unit: 'Más excongresistas',
-      desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">16 de sus representantes registran antecedentes parlamentarios.</span>'
-    },
-    {
-      unit: 'Bernardino Jair Manrique Olivera <span style="color: #e90a0d; display: block;">Ahora Nación</span>',
-      desc: '<span class="negro">Es el diputado electo más joven.</span> Según su hoja de vida, tiene 29 años.'
+      unit: 'Romina Alejandra Uribe Sáenz <span style="color: #c4b90c; display: block;">Partido del Buen Gobierno</span>',
+      desc: '<span class="negro">Es la diputada electa más joven.</span> Según su hoja de vida presentada ante el JNE, tiene 28 años.',
+      logo: './img/logos-partidos/partido-del-buen-gobierno.jpg',
+      logoAlt: 'Partido del Buen Gobierno'
     },
     {
       unit: 'Javier Alejandro Castro Cruz <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
-      desc: '<span class="negro">Declara 5 sentencias penales y 8 sentencias no penales en su hojas de vida.</span> Las primeras corresponden a procesos por difamación, injuria y calumnia, mientras que las segundas están vinculadas a materias familiar, alimentaria y contractual.'
+      desc: 'Según la información consignada en su hoja de vida presentada ante el JNE, Javier Alejandro Castro Cruz (Fuerza Popular) <span class="negro">registra cinco sentencias penales con penas cumplidas y cuatro sentencias no penales.</span> Las sentencias penales corresponden a procesos por difamación, injuria y calumnia, mientras que las no penales están vinculadas a materias familiar, alimentaria y contractual.',
+      logo: './img/logos-partidos/fuerza-popular-2.jpg',
+      logoAlt: 'Fuerza Popular'
     },
     {
       unit: 'Luis Aurelio Masco Cáceres <span style="color: #2c6111; display: block;">Partido Cívico Obras</span>',
-      desc: 'Registra el mayor ingreso anual declarado. Según su hoja de vida, <span class="negro">reporta ingresos por más de S/ 3,3 millones.</span>'
-    }
+      desc: 'Según su hoja de vida presentada ante el JNE, consigna ingresos superiores a <span class="negro">S/ 3,3 millones,</span> la cifra más alta entre los diputados electos.',
+      logo: './img/logos-partidos/partido-civico-obras.jpg',
+      logoAlt: 'Partido Cívico Obras'
+    },
+    {
+      unit: 'Mayor representación femenina',
+      desc: 'El Partido del Buen Gobierno registra la mayor proporción de mujeres entre las bancadas de diputados electos. De sus <span class="negro">14 escaños</span>, <span class="rojo">8 corresponden a mujeres</span> y <span class="amarillo">6 a hombres</span>.'
+    },
+    {
+      unit: 'Sin educación universitaria',
+      desc: 'Según la información consignada en las hojas de vida presentadas ante el JNE, el Partido Cívico Obras concentra la mayor cantidad de diputados electos que no registran estudios superiores. <span class="negro">Cuatro de sus representantes no consignan educación superior en sus declaraciones. </span>'
+    },
+    {
+      unit: 'Más excongresistas',
+      desc: 'Fuerza Popular es el partido con más diputados electos que registran experiencia parlamentaria previa. En total, <span class="negro">13 de sus representantes cuentan con antecedentes parlamentarios.</span>'
+    },
+    null
   ],
   senador: [
     {
@@ -602,7 +605,7 @@ const PX_CARD_CONTENT = {
     },
     {
       unit: 'Baby Boomers al mando',
-      desc: 'La edad promedio de los senadores electos es de 61 años. El menor registra <span class="cian">39 años</span> y el mayor <span class="verde">79 años</span>.'
+      desc: 'La edad promedio de los senadores electos es de 64 años. El menor registra <span class="cian">39 años</span> y el mayor <span class="verde">79</span>.'
     },
     {
       unit: 'Posgrado presente',
@@ -610,28 +613,30 @@ const PX_CARD_CONTENT = {
     },
     {
       unit: 'Sentencias declaradas',
-      desc: '<span class="cian">4 senadores electos</span>  declaran sentencias penales y <span class="verde">6 sentencias no penales</span> en sus hojas de vida.'
+      desc: '<span class="cian">4 senadores electos</span> declaran sentencias penales en sus hojas de vida, mientras que <span class="verde">7 senadores consignan sentencias no penales</span> en los registros ante el JNE.'
+    },
+    null, // índice 4 → pxs-5, manejado por renderPxScene8 (senador)
+    {
+      unit: 'Elard Galo <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
+      desc: 'Según la información consignada en las hojas de vida presentadas ante el JNE, Elard Galo (Fuerza Popular) reporta <span class="negro">ingresos superiores a S/ 5,2 millones,</span> la cifra más alta entre los senadores electos.',
+      logo: './img/logos-partidos/fuerza-popular-2.jpg',
+      logoAlt: 'Fuerza Popular'
+    },
+    {
+      unit: 'Sin ingresos declarados',
+      desc: 'Según la información consignada en las hojas de vida presentadas ante el JNE, <span class="negro">cinco senadores electos no registran ingresos declarados:</span> Sarafín Andrés Luján, Iber Antenor Olarte, Walter Francisco Gago Rodríguez, Lourdes Alcorta y Miguel Ángel Velásquez García.'
     },
     {
       unit: 'Mayor representación masculina',
-      desc: 'Juntos por el Perú registra la mayor proporción de hombres entre sus senadores electos. <span class="negro">De sus 14 curules</span>, <span class="rojo">13 corresponden a hombres</span> <span class="negro">y</span> <span class="verde">1 a mujeres</span>.'
+      desc: 'Juntos por el Perú es la bancada con la mayor proporción de hombres entre los senadores electos. <span class="negro">De sus 11 escaños</span>, <span class="rojo">10 corresponden a hombres</span> y <span class="verde">1 a una mujer</span>.'
     },
     {
-      unit: 'Sin educación superior',
-      desc: 'Juntos por el Perú concentra la mayor cantidad de diputados electos que no registran educación superior. <span class="negro">Tres de sus representantes declaran no contar con estudios superiores en sus hojas de vida.</span>'
+      unit: 'Sin estudios universitarios',
+      desc: 'Juntos por el Perú concentra la mayor cantidad de senadores electos que no registran estudios universitarios. <span class="negro">Tres de sus representantes —Serafín Andrés Luján, José Mercedes Castillo Terrones y Andrés Avelino Ramos Huillcas— no consignan estudios universitarios en sus declaraciones.</span>'
     },
     {
       unit: 'Más excongresistas',
-      desc: 'Fuerza Popular es el partido con más diputados electos que declaran experiencia previa como congresistas. <span class="negro">En total, 18 de sus representantes registran antecedentes parlamentarios.</span>'
-    },
-    null, // índice 7 → pxs-8, manejado por renderPxScene8
-    {
-      unit: 'Elard Galo <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
-      desc: 'Registra el mayor ingreso declarado entre los senadores electos. Según su hoja de vida, <span class="negro">reporta ingresos por más de S/ 5,2 millones.</span>'
-    },
-    {
-      unit: '',
-      desc: 'Cinco senadores electos declaran <span class="negro">no registrar ingresos en sus hojas de vida.</span>'
+      desc: 'Fuerza Popular es el partido con más senadores electos que registran experiencia parlamentaria previa. <span class="negro">En total, 15 de sus representantes fueron congresistas en periodos anteriores.</span>'
     },
   ]
 };
@@ -672,26 +677,27 @@ const PX_SEN10_PEOPLE = [
 ];
 
 function renderPxScene8(tipo) {
-  const scene = document.getElementById('pxs-8');
+  const sceneId = tipo === 'senador' ? 'pxs-5' : 'pxs-8';
+  const scene = document.getElementById(sceneId);
   if (!scene) return;
   const card = scene.querySelector('.px-card');
   if (!card) return;
 
   if (tipo === 'diputado') {
-    card.style.background  = '';
-    card.style.boxShadow   = '';
-    card.style.maxWidth    = '';
-    card.innerHTML = `
-      <div class="box-info-con-logo">
-        <img src="./img/logos-partidos/ahora-nacion.jpg" alt="Ahora Nación" width="100%">
-        <div class="px-unit" style="line-height:1.2;">
-          Bernardino Jair Manrique Olivera
-          <span style="color:#e90a0d;display:block;">Ahora Nación</span>
-        </div>
+    // pxs-5 card structure is destroyed by renderPxScene8(senador); rebuild always.
+    const pxs5 = document.getElementById('pxs-5');
+    const pxs5Card = pxs5 ? pxs5.querySelector('.px-card') : null;
+    if (pxs5Card) {
+      pxs5Card.style.background = '';
+      pxs5Card.style.boxShadow  = '';
+      pxs5Card.style.maxWidth   = '';
+      const c = PX_CARD_CONTENT.diputado[4];
+      pxs5Card.innerHTML = `<div class="box-info-con-logo">
+        <img src="${c.logo || ''}" alt="${c.logoAlt || ''}" width="100%">
+        <div class="px-unit" style="line-height:1.2;">${c.unit}</div>
       </div>
-      <p class="px-desc">
-        <span class="negro">Es el diputado electo más joven.</span> Según su hoja de vida, tiene 29 años.
-      </p>`;
+      <p class="px-desc">${c.desc}</p>`;
+    }
     return;
   }
 
@@ -778,7 +784,7 @@ function setPxFiltro(tipo, btn) {
   const cardContent = PX_CARD_CONTENT[tipo];
   if (cardContent) {
     ['pxs-1', 'pxs-2', 'pxs-3', 'pxs-4', 'pxs-5', 'pxs-6', 'pxs-7', 'pxs-8', 'pxs-9', 'pxs-10'].forEach((id, i) => {
-      if (id === 'pxs-8') return; // handled separately by renderPxScene8
+      if (tipo === 'senador' && id === 'pxs-5') return; // handled by renderPxScene8
       const scene = document.getElementById(id);
       if (!scene || !cardContent[i]) return;
       const unit = scene.querySelector('.px-unit');
@@ -787,19 +793,25 @@ function setPxFiltro(tipo, btn) {
       if (desc) desc.innerHTML = cardContent[i].desc;
       const logoWrap = scene.querySelector('.box-info-con-logo');
       const logoImg = logoWrap ? logoWrap.querySelector('img') : null;
-      if (logoImg) logoImg.style.display = cardContent[i].unit ? '' : 'none';
-      if (logoWrap) logoWrap.style.height = cardContent[i].unit ? '' : '0';
-      // People grid para pxs-10 senador (dentro del .px-card-wrap, debajo del card)
-      if (id === 'pxs-10') {
-        const wrap10 = scene.querySelector('.px-card-wrap');
+      const hasPartyUnit = cardContent[i].unit && cardContent[i].unit.includes('<span');
+      if (logoImg) {
+        logoImg.style.display = hasPartyUnit ? '' : 'none';
+        if (hasPartyUnit && cardContent[i].logo) {
+          logoImg.src = cardContent[i].logo;
+          if (cardContent[i].logoAlt) logoImg.alt = cardContent[i].logoAlt;
+        }
+      }
+      // People grid para pxs-7 senador (Sin ingresos declarados)
+      if (id === 'pxs-7') {
+        const wrap6 = scene.querySelector('.px-card-wrap');
         let grid = scene.querySelector('.px-people-grid');
         if (tipo === 'senador') {
-          if (!grid && wrap10) {
+          if (!grid && wrap6) {
             grid = document.createElement('div');
             grid.className = 'px-people-grid';
-            wrap10.appendChild(grid);
-            wrap10.style.flexDirection = 'column';
-            wrap10.style.alignItems    = 'center';
+            wrap6.appendChild(grid);
+            wrap6.style.flexDirection = 'column';
+            wrap6.style.alignItems    = 'center';
           }
           if (grid) {
             grid.innerHTML = PX_SEN10_PEOPLE.map(p => {
@@ -815,11 +827,15 @@ function setPxFiltro(tipo, btn) {
           }
         } else {
           if (grid) grid.remove();
-          if (wrap10) { wrap10.style.flexDirection = ''; wrap10.style.alignItems = ''; }
+          if (wrap6) { wrap6.style.flexDirection = ''; wrap6.style.alignItems = ''; }
         }
       }
     });
   }
+  const pxs4 = document.getElementById('pxs-4');
+  if (pxs4) pxs4.style.display = '';
+  const pxs10 = document.getElementById('pxs-10');
+  if (pxs10) pxs10.style.display = tipo === 'diputado' ? 'none' : '';
   renderPxScene8(tipo);
   // Regenerar hemiciclos SVG con datos del tipo correcto
   const hemKey  = tipo === 'diputado' ? 'dip' : 'sen';
@@ -924,6 +940,10 @@ function initPxStories() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // run once on init
+
+  // Apply default (diputado) card content so backgrounds match cards from the start
+  const initDipBtn = document.getElementById('px-tab-dip');
+  if (initDipBtn) setPxFiltro('diputado', initDipBtn);
 }
 
 // ── GLOBAL FILTER ─────────────────────────────
