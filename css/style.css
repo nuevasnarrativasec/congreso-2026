@@ -1214,6 +1214,7 @@ footer a:hover{text-decoration:underline}
             font: 1rem/1.6 "Roboto", sans-serif;
             font-weight: 400;
             text-align: left;
+            margin-bottom: 10px;
         }
 
 /* ============================================
