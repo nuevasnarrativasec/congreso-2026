@@ -285,7 +285,7 @@ span.indicacion{
 .tag-info{background:#e8f0fd;color:#1a5276}
 
 /* ── HEMICICLOS ─────────────────────────── */
-#hemiciclos{background: #F5F5F5;}
+#hemiciclos{background: #F5F5F5;     padding-top: 70px;}
 /* ── HEM-IMAGE-BLOCK (reutilizable) ────────── */
 
 #hemiciclos h3{
