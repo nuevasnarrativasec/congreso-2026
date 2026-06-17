@@ -1851,7 +1851,7 @@ const candidatos = [
   },
   {
     nombre: "Percy Herbert Osorio Palpan",
-    fotoCandidato: "./img/fotos-candidatos/senadores/percy-osorio.png",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/percy-osorio.png",
     genero: "M",
     edad: 47,
     partido: "JUNTOS POR EL PERU",
@@ -2385,7 +2385,7 @@ const candidatos = [
   },
   {
     nombre: "Walter Francisco Gago Rodríguez",
-    fotoCandidato: "./img/fotos-candidatos/senadores/walter-gago.png",
+    fotoCandidato: "https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/walter-gago.png",
     genero: "M",
     edad: 64,
     partido: "PARTIDO CIVICO OBRAS",
