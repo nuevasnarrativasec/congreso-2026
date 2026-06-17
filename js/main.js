@@ -573,19 +573,19 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Romina Alejandra Uribe Sáenz <span style="color: #c4b90c; display: block;">Partido del Buen Gobierno</span>',
       desc: '<span class="negro">Es la diputada electa más joven.</span> Según su hoja de vida presentada ante el JNE, tiene 28 años.',
-      logo: './img/logos-partidos/partido-del-buen-gobierno.jpg',
+      logo: 'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/partido-del-buen-gobierno.jpg',
       logoAlt: 'Partido del Buen Gobierno'
     },
     {
       unit: 'Javier Alejandro Castro Cruz <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
       desc: 'Según la información consignada en su hoja de vida presentada ante el JNE, Javier Alejandro Castro Cruz (Fuerza Popular) <span class="negro">registra cinco sentencias penales con penas cumplidas y cuatro sentencias no penales.</span> Las sentencias penales corresponden a procesos por difamación, injuria y calumnia, mientras que las no penales están vinculadas a materias familiar, alimentaria y contractual.',
-      logo: './img/logos-partidos/fuerza-popular-2.jpg',
+      logo: 'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/fuerza-popular-2.jpg',
       logoAlt: 'Fuerza Popular'
     },
     {
       unit: 'Luis Aurelio Masco Cáceres <span style="color: #2c6111; display: block;">Partido Cívico Obras</span>',
       desc: 'Según su hoja de vida presentada ante el JNE, consigna ingresos superiores a <span class="negro">S/ 3,3 millones,</span> la cifra más alta entre los diputados electos.',
-      logo: './img/logos-partidos/partido-civico-obras.jpg',
+      logo: 'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/partido-civico-obras.jpg',
       logoAlt: 'Partido Cívico Obras'
     },
     {
@@ -623,7 +623,7 @@ const PX_CARD_CONTENT = {
     {
       unit: 'Elard Galo <span style="color: #ee6c0a; display: block;">Fuerza Popular</span>',
       desc: 'Según la información consignada en las hojas de vida presentadas ante el JNE, Elard Galo (Fuerza Popular) reporta <span class="negro">ingresos superiores a S/ 5,2 millones,</span> la cifra más alta entre los senadores electos.',
-      logo: './img/logos-partidos/fuerza-popular-2.jpg',
+      logo: 'https://nuevasnarrativasec.github.io/congreso-2026/img/logos-partidos/fuerza-popular-2.jpg',
       logoAlt: 'Fuerza Popular'
     },
     {
@@ -649,31 +649,31 @@ const PX_CARD_CONTENT = {
 // Editable manualmente: agrega, quita o cambia el orden de los objetos
 const PX_SEN10_PEOPLE = [
   {
-    foto:    './img/fotos-candidatos/senadores/serafin-lujan.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/serafin-lujan.png',
     nombre:  'Sarafín Andrés Luján',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
   },
   {
-    foto:    './img/fotos-candidatos/senadores/iber-olarte.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/iber-olarte.png',
     nombre:  'Iber Antenor Olarte',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
   },
   {
-    foto:    './img/fotos-candidatos/senadores/walter-gago.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/walter-gago.png',
     nombre:  'Walter Francisco Gago Rodríguez',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
   },
   {
-    foto:    './img/fotos-candidatos/senadores/lourdes-alcorta.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/lourdes-alcorta.png',
     nombre:  'Lourdes Alcorta',
     partido: 'RENOVACION POPULAR',
     display: 'Renovación Popular',
   },
   {
-    foto:    './img/fotos-candidatos/senadores/miguel-velasquez.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/miguel-velasquez.png',
     nombre:  'Miguel Ángel Velásquez García',
     partido: 'RENOVACION POPULAR',
     display: 'Renovación Popular',
@@ -684,19 +684,19 @@ const PX_SEN10_PEOPLE = [
 // Editable manualmente: agrega, quita o cambia el orden de los objetos
 const PX_SEN9_ESTUDIOS_PEOPLE = [
   {
-    foto:    './img/fotos-candidatos/senadores/serafin-lujan.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/senadores/serafin-lujan.png',
     nombre:  'Serafín Andrés Luján',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
   },
   {
-    foto:    './img/fotos-candidatos/juntos-por-el-peru/jose-castillo-terrones.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/jose-castillo-terrones.png',
     nombre:  'José Mercedes Castillo Terrones',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
   },
   {
-    foto:    './img/fotos-candidatos/juntos-por-el-peru/andres-avelino-ramos-huillcas.png',
+    foto:    'https://nuevasnarrativasec.github.io/congreso-2026/img/fotos-candidatos/juntos-por-el-peru/andres-avelino-ramos-huillcas.png',
     nombre:  'Andrés Avelino Ramos Huillcas',
     partido: 'JUNTOS POR EL PERU',
     display: 'Juntos por el Perú',
