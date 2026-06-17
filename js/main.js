@@ -141,7 +141,7 @@ function openBancadaPanel(partido, miembros, cardEl) {
     openBancada = partido;
     const meta = PARTIDOS[partido]||{sigla:'?',color:'#888',bg:'#eee'};
     list.innerHTML = miembros.map((c,i)=>`
-        <div class="panel-list-item" onclick="showCV(${i},this)" data-idx="${i}">
+        <div class="panel-list-item${c.nota ? ' panel-list-item--pendiente' : ''}" onclick="showCV(${i},this)" data-idx="${i}">
             <div class="pi-avatar" style="color:${meta.color}"><img src="${meta.logo}"></div>
             <div class="pi-name">${c.nombre}<br><span style="color: #000;font-size:.72rem">${c.circunscripcion||''}</span></div>
             ${c.delitos?'<span class="pi-badge tag-alerta">⚠</span>':''}
@@ -196,6 +196,10 @@ function showCV(idx, el) {
           </div>
         </div>
       </div>
+
+      ${c.nota ? `
+      <!-- Nota de advertencia -->
+      <div class="ficha-nota-dark">${c.nota}</div>` : ''}
 
       <!-- Perfil profesional -->
       <div class="ficha-card">
@@ -1085,6 +1089,7 @@ function showPaCV(idx, el) {
           </div>
         </div>
       </div>
+      ${c.nota ? `<div class="ficha-nota-dark">${c.nota}</div>` : ''}
       <div class="ficha-card">
         <div class="ficha-card-title">¿Cuál es su perfil profesional?</div>
         <hr class="ficha-divider">

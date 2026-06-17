@@ -1892,6 +1892,7 @@ const candidatos = [
   },
   {
     nombre: "Rafael Bernardo López Aliaga Cazorla",
+    nota: "Rafael López Aliaga ha anunciado que no asumiría el cargo. La asignación definitiva de este escaño está pendiente de definición oficial del JNE.",
     fotoCandidato: "https://mpesije.jne.gob.pe/apidocs/b2e00ae2-1e50-4ad3-a103-71fc7e4e8255.jpg",
     genero: "M",
     edad: 65,

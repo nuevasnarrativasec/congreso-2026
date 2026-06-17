@@ -183,6 +183,12 @@ span.indicacion{
   cursor:pointer;border-bottom:1px solid #f0ede8;transition:background .15s;
 }
 .panel-list-item:hover,.panel-list-item.active{background:#fdf9f4}
+.panel-list-item--pendiente{opacity:.5;filter:grayscale(1);}
+.panel-list-item--pendiente:hover,.panel-list-item--pendiente.active{background:#f0f0f0;}
+.ficha-nota-dark{
+  background:#111;color:#fff;border-radius:14px;
+  padding:16px 20px;font-size:.88rem;line-height:1.5;margin-bottom:12px;
+}
 .pi-avatar{
   width:36px;height:36px;border-radius:50%;background:var(--paper-d);
   font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;
