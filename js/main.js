@@ -54,7 +54,7 @@ const REGION_MAP = {
   'PE-CAL':'Callao','PE-CUS':'Cusco','PE-HUC':'Huánuco',
   'PE-HUV':'Huancavelica','PE-ICA':'Ica','PE-JUN':'Junín',
   'PE-LAL':'La Libertad','PE-LAM':'Lambayeque','PE-LIM':'Lima',
-  'PE-LMA':'Lima Metropolitana','PE-LOR':'Loreto','PE-MDD':'Madre de Dios',
+  'PE-LOR':'Loreto','PE-MDD':'Madre de Dios',
   'PE-MOQ':'Moquegua','PE-PAS':'Pasco','PE-PIU':'Piura',
   'PE-PUN':'Puno','PE-SAM':'San Martín','PE-TAC':'Tacna',
   'PE-TUM':'Tumbes','PE-UCA':'Ucayali'
@@ -507,12 +507,13 @@ function showMapaResults(regionId) {
     // normalize for matching
     const norm = s=>(s||'').toLowerCase().replace(/[áàä]/g,'a').replace(/[éèë]/g,'e').replace(/[íìï]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u');
     const normRegion = norm(regionName);
-    const isLimaMetro = normRegion === 'lima metropolitana';
+    const isLima = normRegion === 'lima';
     const filtered = candidatos.filter(c=>{
         if(c.tipoCandidatura !== mapaFiltro) return false;
         const circ = norm(c.circunscripcion||'');
-        if(circ === 'unico nacional') return isLimaMetro;
-        return circ.includes(normRegion);
+        if(circ === 'unico nacional') return isLima;
+        if(isLima) return circ === 'lima' || circ === 'lima metropolitana';
+        return circ === normRegion;
     });
     const regionHeader = `<div class="mapa-region-header">
         <span class="region-name-badge">${regionName}</span>
@@ -538,6 +539,12 @@ function showMapaResults(regionId) {
 
 function initMapa() {
   document.querySelectorAll('#peru-svg .rpath').forEach(path=>{
+    if(path.id === 'PE-LKT') {
+      path.style.pointerEvents = 'none';
+      path.style.cursor = 'default';
+      path.style.opacity = '0.4';
+      return;
+    }
     path.addEventListener('click', function(){
       document.querySelectorAll('#peru-svg .rpath').forEach(p=>p.classList.remove('selected'));
       this.classList.add('selected');
@@ -547,10 +554,10 @@ function initMapa() {
       this.setAttribute('data-title', this.getAttribute('title'));
     });
   });
-  // Select Lima Metropolitana by default
-  const limaPath = document.querySelector('#peru-svg .rpath#PE-LMA');
+  // Select Lima by default
+  const limaPath = document.querySelector('#peru-svg .rpath#PE-LIM');
   if(limaPath) limaPath.classList.add('selected');
-  showMapaResults('PE-LMA');
+  showMapaResults('PE-LIM');
 }
 
 // ── PARALLAX STORIES ──────────────────────────
