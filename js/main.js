@@ -304,6 +304,10 @@ function showCV(idx, el) {
             <div class="ficha-field-value">${c.muebles || 'No declara'}</div>
           </div>
         </div>
+        ${c.acciones ? `<div class="ficha-field ficha-field-acciones">
+          <div class="ficha-field-label">Acciones y participaciones en empresas</div>
+          <div class="ficha-field-value">${c.acciones}</div>
+        </div>` : ''}
       </div>
 
       <!-- Bio / resumen conjunto -->
@@ -1190,6 +1194,10 @@ function showPaCV(idx, el) {
             <div class="ficha-field-value">${c.muebles || 'No declara'}</div>
           </div>
         </div>
+        ${c.acciones ? `<div class="ficha-field ficha-field-acciones">
+          <div class="ficha-field-label">Acciones y participaciones en empresas</div>
+          <div class="ficha-field-value">${c.acciones}</div>
+        </div>` : ''}
       </div>
       ${c.bio ? `
       <div class="ficha-card ficha-card-bio">
