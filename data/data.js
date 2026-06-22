@@ -527,7 +527,7 @@ const candidatos = [
         expInternacional: 'No',
         cargosEleccion: 'Sí',
         cargosPartidarios: 'Fue presidente y fundador de Compromiso Campesino entre 2006 y 2011.',
-        continuidad: 'Renunció a Cajamarca Siempre Verde y al Partido Democrático Somos Perú en 2024.',
+        continuidad: 'Renunció a Cajamarca Siempre Verde y Partido Democrático Somos Perú en 2024.',
         sentencias: 'Sí declara 1 sentencia(s) con detalle de hurto agravado.',
         demandas: 'Declara no tener demandas',
         ingresos: 'S/121,500',
